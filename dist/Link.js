@@ -12,7 +12,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _connectTypes = require('../connectTypes');
+var _pureReduxRouter = require('pure-redux-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61,7 +61,7 @@ function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
   }
 
   if (shouldGo && shouldDispatch && target !== '_blank') {
-    dispatch((0, _connectTypes.go)(href));
+    dispatch((0, _pureReduxRouter.go)(href));
   }
 }
 
