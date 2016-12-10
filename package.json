@@ -1,10 +1,11 @@
 {
   "name": "pure-redux-router-link",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than go or dispatch yourself)",
   "main": "dist/Link.js",
   "scripts": {
-    "build": "babel ./src --out-dir ./dist"
+    "build": "babel ./src --out-dir ./dist",
+    "publish": "npm run build && git commit -a -m 'build' && git push"
   },
   "repository": {
     "type": "git",
