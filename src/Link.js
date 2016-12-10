@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { go } from '../connectTypes'
+import { go } from 'pure-redux-router'
 
 
 function Link({
