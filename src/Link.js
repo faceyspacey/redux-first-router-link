@@ -35,7 +35,7 @@ export default connect()(Link)
 
 function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
   if(target !== '_blank') {
-    e.preventDefault()
+    e && e.preventDefault && e.preventDefault()
   }
   
   let shouldGo = true
@@ -51,5 +51,5 @@ function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
 }
 
 function preventDefault(e) {
-  e.preventDefault()
+  e && e.preventDefault && e.preventDefault()
 }
