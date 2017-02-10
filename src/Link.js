@@ -1,55 +1,51 @@
+// @flow
+
 import React from 'react'
 import { connect } from 'react-redux'
-import { go } from 'pure-redux-router'
+import type { Connector } from 'react-redux'
+import { handlePress, preventDefault } from './handlePress'
 
 
-function Link({
-  href, 
-  children, 
-  onPress, 
-  down=false, 
-  shouldDispatch=true, 
-  target, 
-  dispatch, 
+const Link = ({
+  href,
+  children,
+  onPress,
+  down = false,
+  shouldDispatch = true,
+  target,
+  dispatch,
   ...props
-}) {
-  let handler = handlePress.bind(null, href, onPress, shouldDispatch, target, dispatch)
+}: Props) => {
+  const handler = handlePress.bind(null, href, onPress, shouldDispatch, target, dispatch)
 
   return (
-    <a 
-      href={href} 
-      onClick={!down && handler || preventDefault} 
-      onMouseDown={down && handler} 
-      onTouchStart={down && handler} 
+    <a
+      href={href}
+      onClick={(!down && handler) || preventDefault}
+      onMouseDown={down && handler}
+      onTouchStart={down && handler}
       target={target}
-      {...props} 
+      {...props}
     >
       {children}
     </a>
   )
 }
 
-export default connect()(Link)
 
-
-
-function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
-  if(target !== '_blank') {
-    e && e.preventDefault && e.preventDefault()
-  }
-  
-  let shouldGo = true
-
-  if(onPress) {
-    shouldGo = onPress(e) //onPress can return false to prevent dispatch
-    shouldGo = typeof shouldGo === 'undefined' ? true : shouldGo
-  }
-
-  if(shouldGo && shouldDispatch && target !== '_blank') {
-    dispatch(go(href))
-  }
+type OwnProps = {
+  href: string,
+  children: any, // eslint-disable-line flowtype/no-weak-types
+  onPress?: Function, // eslint-disable-line flowtype/no-weak-types
+  down?: boolean,
+  shouldDispatch?: boolean,
+  target?: string,
 }
 
-function preventDefault(e) {
-  e && e.preventDefault && e.preventDefault()
-}
+type Props = {
+  dispatch: Function, // eslint-disable-line flowtype/no-weak-types
+} & OwnProps
+
+const connector: Connector<OwnProps, Props> = connect()
+
+export default connector(Link)

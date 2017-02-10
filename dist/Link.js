@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function Link(_ref) {
+var Link = function Link(_ref) {
   var href = _ref.href,
       children = _ref.children,
       onPress = _ref.onPress,
@@ -43,28 +43,30 @@ function Link(_ref) {
     }, props),
     children
   );
-}
+};
 
-exports.default = (0, _reactRedux.connect)()(Link);
+var connector = (0, _reactRedux.connect)();
+
+exports.default = connector(Link);
 
 
-function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
-  if (target !== '_blank') {
-    e && e.preventDefault && e.preventDefault();
+var handlePress = function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
+  if (target !== '_blank' && e && e.preventDefault) {
+    e.preventDefault();
   }
 
   var shouldGo = true;
 
   if (onPress) {
-    shouldGo = onPress(e); //onPress can return false to prevent dispatch
+    shouldGo = onPress(e); // onPress can return false to prevent dispatch
     shouldGo = typeof shouldGo === 'undefined' ? true : shouldGo;
   }
 
   if (shouldGo && shouldDispatch && target !== '_blank') {
     dispatch((0, _pureReduxRouter.go)(href));
   }
-}
+};
 
-function preventDefault(e) {
-  e && e.preventDefault && e.preventDefault();
-}
+var preventDefault = function preventDefault(e) {
+  return e && e.preventDefault && e.preventDefault();
+};
