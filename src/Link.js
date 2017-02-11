@@ -22,8 +22,9 @@ const Link = ({
   dispatch,
   ...props
 }: Props, { store }: Context) => {
-  const url = hrefToUrl(href, store)
-  const handler = handlePress.bind(null, url, onPress, shouldDispatch, target, dispatch)
+  const { routesMap } = store.getState().location
+  const url = hrefToUrl(href, routesMap)
+  const handler = handlePress.bind(null, url, routesMap, onPress, shouldDispatch, target, dispatch, href)
 
   return (
     <a

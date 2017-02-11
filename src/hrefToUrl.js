@@ -1,11 +1,11 @@
 // @flow
 import { actionToPath } from 'pure-redux-router'
-import type { Store } from 'redux'
+import type { RoutesMap } from 'pure-redux-router'
 
 
 export type Href = string | Array<string> | Object // eslint-disable-line flowtype/no-weak-types
 
-export default (href: Href, store: Store): string => {
+export default (href: Href, routesMap: RoutesMap): string => {
   if (typeof href === 'string') {
     return href
   }
@@ -14,7 +14,6 @@ export default (href: Href, store: Store): string => {
   }
   else if (typeof href === 'object') {
     const action = href
-    const { routesMap } = store.getState().location
 
     try {
       return actionToPath(action, routesMap)

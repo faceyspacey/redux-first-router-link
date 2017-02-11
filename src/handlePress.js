@@ -1,14 +1,17 @@
 // @flow
 
-import { go } from 'pure-redux-router'
-
+import { pathToAction } from 'pure-redux-router'
+import type { RoutesMap } from 'pure-redux-router'
+import type { Href } from './hrefToUrl'
 
 export default (
-  href: string,
-  onPress?: Function, // eslint-disable-line flowtype/no-weak-types
+  url: string,
+  routesMap: RoutesMap,
+  onPress: ?Function, // eslint-disable-line flowtype/no-weak-types
   shouldDispatch: boolean,
-  target?: string,
+  target: ?string,
   dispatch: Function, // eslint-disable-line flowtype/no-weak-types
+  href?: Href,
   e: SyntheticEvent,
 ) => {
   if (target !== '_blank' && e && e.preventDefault) {
@@ -23,6 +26,14 @@ export default (
   }
 
   if (shouldGo && shouldDispatch && target !== '_blank') {
-    dispatch(go(href))
+    const action = isAction(href)
+      ? href
+      : pathToAction(url, routesMap)
+
+    dispatch(action)
   }
 }
+
+
+const isAction = (href?: Href) =>
+  typeof href === 'object' && !Array.isArray(href)

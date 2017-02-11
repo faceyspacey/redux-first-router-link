@@ -2977,9 +2977,9 @@ punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-pure-redux-router@^1.0.22:
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/pure-redux-router/-/pure-redux-router-1.0.22.tgz#99d3e424596431af70b417a6030dba5150c05acc"
+pure-redux-router@^1.0.24:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/pure-redux-router/-/pure-redux-router-1.0.24.tgz#e5f2388b8232fb3eaa6ef9a525288b8a25496da0"
   dependencies:
     path-to-regexp "^1.7.0"
 

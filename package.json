@@ -1,6 +1,6 @@
 {
   "name": "pure-redux-router-link",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than go or dispatch yourself)",
   "main": "dist/Link.js",
   "files": [
@@ -50,7 +50,6 @@
     "flow-copy-source": "^1.1.0",
     "history": "^4.5.1",
     "jest": "^18.1.0",
-    "pure-redux-router": "^1.0.22",
     "react": "^15.x",
     "react-redux": "^4.x",
     "react-test-renderer": "^15.4.2",
@@ -61,5 +60,8 @@
     "react": "^15.x",
     "react-redux": "^4.x",
     "redux": "^3.x"
+  },
+  "dependencies": {
+    "pure-redux-router": "^1.0.24"
   }
 }
