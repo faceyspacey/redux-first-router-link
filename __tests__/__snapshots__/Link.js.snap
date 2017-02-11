@@ -1,212 +1,3 @@
-exports[`<Link /> ON_: dispatches action onMouseDown if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK:  dispatch if onPress returns false 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: DOES dispatch if onPress returns false 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: DOES dispatch if onPress returns t 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: DOES dispatch if onPress returns true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: dispatches location-aware action 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target="_self">
-  CLICK ME
-</a>
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if on 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if onPress returns fa 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if onPress returns false 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if onPress returns und 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if onPress returns undefined 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if shouldDispatch === false 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_CLICK: does NOT dispatch if shouldDispatch === false 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_MOUSE_DOWN: dispatches action onMouseDown if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_MOUSE_DOWN: dispatches action onMouseDown if down === true 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_: dispatches action onMouseDown if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_START: dispatches action on if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_START: dispatches action onMouseDown if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_START: dispatches action onTouch if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_START: dispatches action onTouchStar if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`<Link /> ON_TOUCH_START: dispatches action onTouchStart if down === true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: D dispatch if onPress returns true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
 exports[`test ON_CLICK: DOES dispatch if onPress returns true 1`] = `
 <a
   href="/first"
@@ -217,15 +8,6 @@ exports[`test ON_CLICK: DOES dispatch if onPress returns true 1`] = `
 `;
 
 exports[`test ON_CLICK: DOES dispatch if onPress returns true 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: DOES dispatch if onPress returns und 1`] = `
 <a
   href="/first"
   onClick={[Function]}
@@ -254,6 +36,17 @@ exports[`test ON_CLICK: dispatches location-aware action 1`] = `
 </a>
 `;
 
+exports[`test ON_CLICK: dispatches location-aware action 2`] = `
+<a
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target="_self">
+  CLICK ME
+</a>
+`;
+
 exports[`test ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
 <a
   href="/first"
@@ -264,51 +57,6 @@ exports[`test ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
 `;
 
 exports[`test ON_CLICK: does NOT dispatch if onPress returns false 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if onPress returns true 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if onPress returns und 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if onPress returns undefined 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if onPress returns undefined or 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if onPress returns undefined or false 1`] = `
 <a
   href="/first"
   onClick={[Function]}
@@ -341,5 +89,77 @@ exports[`test ON_TOUCH_START: dispatches action onTouchStart if down === true 1`
   onClick={[Function]}
   onMouseDown={[Function]}
   onTouchStart={[Function]}
+  target={undefined} />
+`;
+
+exports[`test converts href as action object to path 1`] = `
+<a
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts href as action object to path 2`] = `
+<a
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts href as array of strings to path 1`] = `
+<a
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts href as array of strings to path 2`] = `
+<a
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts href as non-matched action object to "#" for path 1`] = `
+<a
+  href="#"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts href as non-matched action object to "#" for path 2`] = `
+<a
+  href="#"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts invalid hre to "#" for path 1`] = `
+<a
+  href="#"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined} />
+`;
+
+exports[`test converts invalid href to "#" for path 1`] = `
+<a
+  href="#"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
   target={undefined} />
 `;

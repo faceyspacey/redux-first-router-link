@@ -12,13 +12,27 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _pureReduxRouter = require('pure-redux-router');
+var _hrefToUrl = require('./hrefToUrl');
+
+var _hrefToUrl2 = _interopRequireDefault(_hrefToUrl);
+
+var _handlePress = require('./handlePress');
+
+var _handlePress2 = _interopRequireDefault(_handlePress);
+
+var _preventDefault = require('./preventDefault');
+
+var _preventDefault2 = _interopRequireDefault(_preventDefault);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var Link = function Link(_ref) {
+var babelPluginFlowReactPropTypes_proptype_Href = require('./hrefToUrl').babelPluginFlowReactPropTypes_proptype_Href || require('react').PropTypes.any;
+
+var Link = function Link(_ref, _ref2) {
+  var store = _ref2.store;
+
   var href = _ref.href,
       children = _ref.children,
       onPress = _ref.onPress,
@@ -30,13 +44,15 @@ var Link = function Link(_ref) {
       dispatch = _ref.dispatch,
       props = _objectWithoutProperties(_ref, ['href', 'children', 'onPress', 'down', 'shouldDispatch', 'target', 'dispatch']);
 
-  var handler = handlePress.bind(null, href, onPress, shouldDispatch, target, dispatch);
+  console.log(1, store);
+  var url = (0, _hrefToUrl2.default)(href, store);
+  var handler = _handlePress2.default.bind(null, url, onPress, shouldDispatch, target, dispatch);
 
   return _react2.default.createElement(
     'a',
     _extends({
-      href: href,
-      onClick: !down && handler || preventDefault,
+      href: url,
+      onClick: !down && handler || _preventDefault2.default,
       onMouseDown: down && handler,
       onTouchStart: down && handler,
       target: target
@@ -45,28 +61,10 @@ var Link = function Link(_ref) {
   );
 };
 
+Link.contextTypes = {
+  store: _react2.default.PropTypes.object.isRequired
+};
+
 var connector = (0, _reactRedux.connect)();
 
 exports.default = connector(Link);
-
-
-var handlePress = function handlePress(href, onPress, shouldDispatch, target, dispatch, e) {
-  if (target !== '_blank' && e && e.preventDefault) {
-    e.preventDefault();
-  }
-
-  var shouldGo = true;
-
-  if (onPress) {
-    shouldGo = onPress(e); // onPress can return false to prevent dispatch
-    shouldGo = typeof shouldGo === 'undefined' ? true : shouldGo;
-  }
-
-  if (shouldGo && shouldDispatch && target !== '_blank') {
-    dispatch((0, _pureReduxRouter.go)(href));
-  }
-};
-
-var preventDefault = function preventDefault(e) {
-  return e && e.preventDefault && e.preventDefault();
-};

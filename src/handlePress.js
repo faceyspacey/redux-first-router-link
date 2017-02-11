@@ -3,7 +3,7 @@
 import { go } from 'pure-redux-router'
 
 
-export const handlePress = (
+export default (
   href: string,
   onPress?: Function, // eslint-disable-line flowtype/no-weak-types
   shouldDispatch: boolean,
@@ -26,6 +26,3 @@ export const handlePress = (
     dispatch(go(href))
   }
 }
-
-export const preventDefault = (e: SyntheticEvent) =>
-  e && e.preventDefault && e.preventDefault()

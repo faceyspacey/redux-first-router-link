@@ -1,3 +1,5 @@
+import { NOT_FOUND } from 'pure-redux-router'
+
 import createLink, { event } from '../__test-helpers__/createLink'
 
 
@@ -117,3 +119,70 @@ it('ON_TOUCH_START: dispatches action onTouchStart if down === true', () => {
   expect(location.type).toEqual('FIRST')
 })
 
+
+it('converts href as array of strings to path', () => {
+  const { tree, store } = createLink({ href: ['second', 'bar'] })
+
+  console.log(tree)
+  expect(tree).toMatchSnapshot()
+
+  console.log(store.getState())
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState()
+  console.log(location)
+
+  expect(location.pathname).toEqual('/second/bar')
+  expect(location.type).toEqual('SECOND')
+})
+
+
+it('converts href as action object to path', () => {
+  const action = { type: 'SECOND', payload: { param: 'bar' } }
+  const { tree, store } = createLink({ href: action })
+
+  console.log(tree)
+  expect(tree).toMatchSnapshot()
+
+  console.log(store.getState())
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState()
+  console.log(location)
+
+  expect(location.pathname).toEqual('/second/bar')
+  expect(location.type).toEqual('SECOND')
+})
+
+
+it('converts href as non-matched action object to "#" for path', () => {
+  const action = { type: 'MISSED' }
+  const { tree, store } = createLink({ href: action })
+
+  console.log(tree)
+  expect(tree.props.href).toEqual('#')
+  expect(tree).toMatchSnapshot()
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState()
+  console.log(location)
+  expect(location.type).toEqual(NOT_FOUND)
+})
+
+
+it('converts invalid href to "#" for path', () => {
+  const { tree, store } = createLink({})
+
+  console.log(tree)
+  expect(tree.props.href).toEqual('#')
+  expect(tree).toMatchSnapshot()
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState()
+  console.log(location)
+  expect(location.type).toEqual(NOT_FOUND)
+})
