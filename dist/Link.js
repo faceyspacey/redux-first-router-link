@@ -47,7 +47,7 @@ var Link = function Link(_ref, _ref2) {
   var routesMap = store.getState().location.routesMap;
 
   var url = (0, _hrefToUrl2.default)(href, routesMap);
-  var handler = _handlePress2.default.bind(null, url, routesMap, onPress, shouldDispatch, target, dispatch);
+  var handler = _handlePress2.default.bind(null, url, routesMap, onPress, shouldDispatch, target, dispatch, href);
 
   return _react2.default.createElement(
     'a',

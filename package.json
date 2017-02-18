@@ -1,6 +1,6 @@
 {
   "name": "pure-redux-router-link",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than go or dispatch yourself)",
   "main": "dist/Link.js",
   "files": [
@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "push": "git add --all && git commit -a -m 'build' && git push",
-    "prepublish": "npm run clean && npm run build && npm run flow-copy",
+    "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min",
     "build": "babel src -d dist",
+    "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/pure-redux-router.js",
+    "build:umd:min": "BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/pure-redux-router.min.js",
     "flow-copy": "flow-copy-source src dist",
     "flow-watch": "clear; printf \"\\033[3J\" & npm run flow & fswatch -o ./ | xargs -n1 -I{} sh -c 'clear; printf \"\\033[3J\" && npm run flow'",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
