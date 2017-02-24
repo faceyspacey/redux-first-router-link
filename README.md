@@ -29,6 +29,9 @@ In all cases, a simple link will be rendered, eg:
 <a href='/list/fp'>FP</a>
 ````
 
+
+## Recommendation
+
 Creating your links with `hrefs` as an action object is obviously the best solution, as it will allow you to change
 static path segments in the `routesMap` you pass to `connectRoutes()` at any time, without
 having to change any of your `<Link />` components. That means you only have to change URLs in one place. 
