@@ -30,6 +30,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var babelPluginFlowReactPropTypes_proptype_Href = require('./hrefToUrl').babelPluginFlowReactPropTypes_proptype_Href || require('react').PropTypes.any;
 
+var babelPluginFlowReactPropTypes_proptype_OnPress = require('./handlePress').babelPluginFlowReactPropTypes_proptype_OnPress || require('react').PropTypes.any;
+
 var Link = function Link(_ref, _ref2) {
   var store = _ref2.store;
 
