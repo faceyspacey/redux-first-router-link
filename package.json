@@ -1,6 +1,6 @@
 {
   "name": "pure-redux-router-link",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than go or dispatch yourself)",
   "main": "dist/Link.js",
   "files": [
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/celebvidy/pure-redux-router-link.git"
+    "url": "git+https://github.com/faceyspacey/pure-redux-router-link.git"
   },
   "author": "James Gillmore <james@faceyspacey.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/celebvidy/pure-redux-router-link/issues"
+    "url": "https://github.com/faceyspacey/pure-redux-router-link/issues"
   },
-  "homepage": "https://github.com/celebvidy/pure-redux-router-link#readme",
+  "homepage": "https://github.com/faceyspacey/pure-redux-router-link#readme",
   "jest": {
     "verbose": true,
     "moduleFileExtensions": [
