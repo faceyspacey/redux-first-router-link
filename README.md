@@ -49,7 +49,7 @@ const { enhancer, middleware, reducer } = connectRoutes(history, {
   LIST: '/list/:category'
 })
 
-const rootReducer = reducer({ location: reducer })
+const rootReducer = combineReducers({ location: reducer })
 const store = createStore(rootReducer, compose(enhancer, applyMiddleware(middleware)))
 ```
 
