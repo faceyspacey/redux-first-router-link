@@ -85,4 +85,5 @@ const href = `/list/${category}` // can get long & yucky with lots of variables
 * **onPress: (SyntheticEvent) => ?boolean** - you can provide an `onPress` handler to do anything you want (e.g. play a sound), but if you return `false` it will prevent
   linking/dispatching just as you may be used to. TIP: Use returning `false` instead of `shouldDispatch` when you want to dynamically determine
   whether to trigger the action or not!
+* **...props:** - you can pass any additional props that an `<a>` tag takes, such as `className`
 
