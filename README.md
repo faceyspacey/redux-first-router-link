@@ -39,6 +39,7 @@ having to change any of your `<Link />` components. That means you only have to 
 For example, if you have:
 
 ```javascript
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 import connectRoutes from 'pure-redux-router'
 
@@ -47,6 +48,9 @@ const history = createBrowserHistory()
 const { middleware, enhancer, reducer } = connectRoutes(history, {
   LIST: '/list/:category'
 })
+
+const rootReducer = reducer({ location: reducer })
+const store = createStore(reducer, compose(rootReducer, applyMiddleware(middleware)))
 ```
 
 Then you can change the static segment of the path at any time, eg:
