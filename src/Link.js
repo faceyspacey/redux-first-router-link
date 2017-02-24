@@ -6,6 +6,7 @@ import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 
 import type { Href } from './hrefToUrl'
+import type { OnPress } from './handlePress'
 
 import hrefToUrl from './hrefToUrl'
 import handlePress from './handlePress'
@@ -48,7 +49,7 @@ Link.contextTypes = {
 type OwnProps = {
   href: Href,
   children: any, // eslint-disable-line flowtype/no-weak-types
-  onPress?: Function, // eslint-disable-line flowtype/no-weak-types
+  onPress?: OnPress,
   down?: boolean,
   shouldDispatch?: boolean,
   target?: string,

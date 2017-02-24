@@ -4,10 +4,12 @@ import { pathToAction } from 'pure-redux-router'
 import type { RoutesMap } from 'pure-redux-router'
 import type { Href } from './hrefToUrl'
 
+export type OnPress = (SyntheticEvent) => ?boolean
+
 export default (
   url: string,
   routesMap: RoutesMap,
-  onPress: ?Function, // eslint-disable-line flowtype/no-weak-types
+  onPress: ?OnPress,
   shouldDispatch: boolean,
   target: ?string,
   dispatch: Function, // eslint-disable-line flowtype/no-weak-types

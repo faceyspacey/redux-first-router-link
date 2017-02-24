@@ -1,7 +1,7 @@
 {
   "name": "pure-redux-router-link",
-  "version": "1.0.8",
-  "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than go or dispatch yourself)",
+  "version": "1.0.9",
+  "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than dispatching yourself)",
   "main": "dist/Link.js",
   "files": [
     "dist"
