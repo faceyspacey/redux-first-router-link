@@ -67,7 +67,7 @@ const href = `/list/${category}` // can get long & yucky with lots of variables
 ## Additional Props:
 
 * **down: boolean = false** - if `true` supplied, will trigger linking/dispatching `onMouseDown` instead of `onMouseUp`
-* **shouldDispatch: boolean = true** - if `false` will not trigger dispatching (useful for SEO when action handled elsewhere)
+* **shouldDispatch: boolean = true** - if `false` will not dispatch (useful for SEO when action handled elsewhere)
 * **target: string** - eg: '_blank' to open up URL in a new tab (same as standard `target` attribute to `<a>` tags)
 * **onPress: (SyntheticEvent) => ?boolean** - you can provide an `onPress` handler to do anything you want (e.g. play a sound), but if you return `false` it will prevent
   linking/dispatching just as you may be used to. Use returning `false` instead of `shouldDispatch` when you want to dynamically determine
