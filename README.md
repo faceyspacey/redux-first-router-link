@@ -14,7 +14,7 @@ yarn add pure-redux-router-link
 import Link from 'pure-redux-router-link'
 
 // as a standard href path string:
-<Link href="/list/db-graphql">DB & GRAPHQL</Link>
+<Link href='/list/db-graphql'>DB & GRAPHQL</Link>
 
 // as an array of path segments:
 <Link href={['list', 'react-redux']}>REACT & REDUX</Link>
