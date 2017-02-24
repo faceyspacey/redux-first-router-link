@@ -23,7 +23,7 @@ import Link from 'pure-redux-router-link'
 <Link href={{ type: 'LIST', payload: { category: 'fp' } }}>FP</Link>
 ```
 
-In all cases, a simple link will be produced, eg:
+In all cases, a simple link will be rendered, eg:
 
 ```javascript
 <a href='/list/fp'>FP</a>
