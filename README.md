@@ -23,6 +23,12 @@ import Link from 'pure-redux-router-link'
 <Link href={{ type: 'LIST', payload: { category: 'fp' } }}>FP</Link>
 ```
 
+In all cases, a simple link will be produced, eg:
+
+```javascript
+<a href='/list/fp'>FP</a>
+````
+
 Creating your links with `hrefs` as an action object is obviously the best solution, as it will allow you to change
 static path segments in the `routesMap` you pass to `connectRoutes()` at any time, without
 having to change any of your `<Link />` components. That means you only have to change URLs in one place. 
@@ -68,7 +74,7 @@ const href = `/list/${category}` // can get long & yucky with lots of variables
 
 * **down: boolean = false** - if `true` supplied, will trigger linking/dispatching `onMouseDown` instead of `onMouseUp`
 * **shouldDispatch: boolean = true** - if `false` will not dispatch (useful for SEO when action handled elsewhere)
-* **target: string** - eg: '_blank' to open up URL in a new tab (same as standard `target` attribute to `<a>` tags)
+* **target: string** - eg: `'_blank'` to open up URL in a new tab (same as standard `target` attribute to `<a>` tags)
 * **onPress: (SyntheticEvent) => ?boolean** - you can provide an `onPress` handler to do anything you want (e.g. play a sound), but if you return `false` it will prevent
   linking/dispatching just as you may be used to. Use returning `false` instead of `shouldDispatch` when you want to dynamically determine
   whether to trigger the action or not.
