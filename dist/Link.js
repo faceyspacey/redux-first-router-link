@@ -30,6 +30,10 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var babelPluginFlowReactPropTypes_proptype_Href = require('./hrefToUrl').babelPluginFlowReactPropTypes_proptype_Href || require('react').PropTypes.any;
 
+// note: unfortunately, babel-plugin-flow-react-proptypes currently requires
+//  React components to have props defined in place, hence the redundancy below
+
+
 var babelPluginFlowReactPropTypes_proptype_OnPress = require('./handlePress').babelPluginFlowReactPropTypes_proptype_OnPress || require('react').PropTypes.any;
 
 var Link = function Link(_ref, _ref2) {
@@ -64,6 +68,15 @@ var Link = function Link(_ref, _ref2) {
   );
 };
 
+Link.propTypes = {
+  href: require('react').PropTypes.oneOfType([require('react').PropTypes.string, require('react').PropTypes.arrayOf(require('react').PropTypes.string), require('react').PropTypes.object]).isRequired,
+  children: require('react').PropTypes.any.isRequired,
+  onPress: require('react').PropTypes.func,
+  down: require('react').PropTypes.bool,
+  shouldDispatch: require('react').PropTypes.bool,
+  target: require('react').PropTypes.string,
+  dispatch: require('react').PropTypes.func.isRequired
+};
 Link.contextTypes = {
   store: _react2.default.PropTypes.object.isRequired
 };

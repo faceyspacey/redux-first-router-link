@@ -4,6 +4,7 @@ import { pathToAction } from 'pure-redux-router'
 import type { RoutesMap } from 'pure-redux-router'
 import type { Href } from './hrefToUrl'
 
+
 export type OnPress = (SyntheticEvent) => ?boolean
 
 export default (

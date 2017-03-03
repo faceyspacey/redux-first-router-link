@@ -1,4 +1,5 @@
 // @flow
+
 import { actionToPath } from 'pure-redux-router'
 import type { RoutesMap } from 'pure-redux-router'
 
@@ -22,7 +23,7 @@ export default (href: Href, routesMap: RoutesMap): string => {
       console.warn(
         '[pure-redux-router-link] could not create path from action:',
         action,
-        'For referene, here are your current routes:',
+        'For reference, here are your current routes:',
         routesMap,
       )
 

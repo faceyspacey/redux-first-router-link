@@ -3341,9 +3341,9 @@ punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-pure-redux-router@^1.0.24:
-  version "1.0.24"
-  resolved "https://registry.yarnpkg.com/pure-redux-router/-/pure-redux-router-1.0.24.tgz#e5f2388b8232fb3eaa6ef9a525288b8a25496da0"
+pure-redux-router@^1.0.34:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/pure-redux-router/-/pure-redux-router-1.0.34.tgz#74c505b8ab1012cc3d68c4c949958d005e09cd20"
   dependencies:
     path-to-regexp "^1.7.0"
 
@@ -4130,13 +4130,9 @@ window-size@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
 
-wordwrap@0.0.2:
+wordwrap@0.0.2, wordwrap@~0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
-
-wordwrap@~0.0.2:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
 
 wordwrap@~1.0.0:
   version "1.0.0"
