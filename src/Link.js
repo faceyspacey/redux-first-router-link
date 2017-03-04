@@ -28,7 +28,7 @@ const Link = ({
 }: {
   href: string | Array<string> | Object, // eslint-disable-line flowtype/no-weak-types,
   children: any, // eslint-disable-line flowtype/no-weak-types
-  onPress?: (SyntheticEvent) => ?boolean,
+  onPress?: false | (SyntheticEvent) => ?boolean,
   down?: boolean,
   shouldDispatch?: boolean,
   target?: string,

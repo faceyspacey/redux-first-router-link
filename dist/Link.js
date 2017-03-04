@@ -71,7 +71,7 @@ var Link = function Link(_ref, _ref2) {
 Link.propTypes = {
   href: require('react').PropTypes.oneOfType([require('react').PropTypes.string, require('react').PropTypes.arrayOf(require('react').PropTypes.string), require('react').PropTypes.object]).isRequired,
   children: require('react').PropTypes.any.isRequired,
-  onPress: require('react').PropTypes.func,
+  onPress: require('react').PropTypes.oneOfType([require('react').PropTypes.oneOf([false]), require('react').PropTypes.func]),
   down: require('react').PropTypes.bool,
   shouldDispatch: require('react').PropTypes.bool,
   target: require('react').PropTypes.string,

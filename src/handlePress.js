@@ -5,7 +5,7 @@ import type { RoutesMap } from 'pure-redux-router'
 import type { Href } from './hrefToUrl'
 
 
-export type OnPress = (SyntheticEvent) => ?boolean
+export type OnPress = false | (SyntheticEvent) => ?boolean
 
 export default (
   url: string,
