@@ -71,7 +71,7 @@ type Props = {
 } & OwnProps
 
 type Context = {
-  store: Store,
+  store: Store<*, *>,
 }
 
 const connector: Connector<OwnProps, Props> = connect()
