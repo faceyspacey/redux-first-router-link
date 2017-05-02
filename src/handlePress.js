@@ -11,7 +11,7 @@ export default (
   onPress: ?OnPress,
   shouldDispatch: boolean,
   target: ?string,
-  dispatch: Function, // eslint-disable-line flowtype/no-weak-types
+  dispatch: Function,
   href?: Href,
   e: SyntheticEvent
 ) => {
