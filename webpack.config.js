@@ -1,17 +1,15 @@
-'use strict';
+const webpack = require('webpack')
 
-var webpack = require('webpack')
+const env = process.env.NODE_ENV
 
-var env = process.env.NODE_ENV
-
-var config = {
+const config = {
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
     ]
   },
   output: {
-    library: 'PureReduxRouterLink',
+    library: 'ReduxFirstRouterLink',
     libraryTarget: 'umd'
   },
   plugins: [
@@ -20,7 +18,7 @@ var config = {
       'process.env.NODE_ENV': JSON.stringify(env)
     })
   ]
-};
+}
 
 if (env === 'production') {
   config.plugins.push(

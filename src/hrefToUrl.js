@@ -1,8 +1,7 @@
 // @flow
 
-import { actionToPath } from 'pure-redux-router'
-import type { RoutesMap } from 'pure-redux-router'
-
+import { actionToPath } from 'redux-first-router'
+import type { RoutesMap } from 'redux-first-router'
 
 export type Href = string | Array<string> | Object // eslint-disable-line flowtype/no-weak-types
 
@@ -21,16 +20,19 @@ export default (href: Href, routesMap: RoutesMap): string => {
     }
     catch (e) {
       console.warn(
-        '[pure-redux-router-link] could not create path from action:',
+        '[redux-first-router-link] could not create path from action:',
         action,
         'For reference, here are your current routes:',
-        routesMap,
+        routesMap
       )
 
       return '#'
     }
   }
 
-  console.warn('[pure-redux-router-link] `href` prop must be a string, array or action object. You provided:', href)
+  console.warn(
+    '[redux-first-router-link] `href` prop must be a string, array or action object. You provided:',
+    href
+  )
   return '#'
 }

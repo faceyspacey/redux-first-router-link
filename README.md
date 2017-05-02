@@ -1,17 +1,17 @@
-# pure-redux-router-link
-A simple but effective `<Link />` component for [pure-redux-router](https://github.com/faceyspacey/pure-redux-router) (better for SEO rather than dispatching yourself)
+# redux-first-router-link
+A simple but effective `<Link />` component for [redux-first-router](https://github.com/faceyspacey/redux-first-router) (better for SEO rather than dispatching yourself)
 
 
 
 ## Installation
 ```bash
-yarn add pure-redux-router-link
+yarn add redux-first-router-link
 ```
 
 ## Usage
 
 ```javascript
-import Link from 'pure-redux-router-link'
+import Link from 'redux-first-router-link'
 
 // as a standard href path string:
 <Link href='/list/db-graphql'>DB & GRAPHQL</Link>
@@ -41,7 +41,7 @@ For example, if you have:
 ```javascript
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createBrowserHistory from 'history/createBrowserHistory'
-import connectRoutes from 'pure-redux-router'
+import connectRoutes from 'redux-first-router'
 
 const history = createBrowserHistory()
 

@@ -3,30 +3,31 @@ import renderer from 'react-test-renderer'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createMemoryHistory'
-import { connectRoutes } from 'pure-redux-router'
-
+import { connectRoutes } from 'redux-first-router'
 
 import Link from '../src/Link'
 
-
-export default (props) => {
+export default props => {
   const routesMap = {
     FIRST: '/first',
-    SECOND: '/second/:param',
+    SECOND: '/second/:param'
   }
 
   const history = createHistory({
     initialEntries: ['/'],
     initialIndex: 0,
-    keyLength: 6,
+    keyLength: 6
   })
 
-  const { middleware, reducer: locationReducer } = connectRoutes(history, routesMap)
+  const { middleware, reducer: locationReducer } = connectRoutes(
+    history,
+    routesMap
+  )
 
   const middlewares = applyMiddleware(middleware)
 
   const reducer = (state = {}, action = {}) => ({
-    location: locationReducer(state.location, action),
+    location: locationReducer(state.location, action)
   })
 
   const store = createStore(reducer, undefined, middlewares)
@@ -36,9 +37,8 @@ export default (props) => {
 
   return {
     tree: component.toJSON(),
-    store,
+    store
   }
 }
-
 
 export const event = { preventDefault: () => undefined }

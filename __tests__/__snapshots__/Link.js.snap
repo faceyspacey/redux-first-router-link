@@ -1,165 +1,113 @@
-exports[`test ON_CLICK: DOES dispatch if onPress returns true 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ON_CLICK: DOES dispatch if onPress returns true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test ON_CLICK: DOES dispatch if onPress returns true 2`] = `
+exports[`ON_CLICK: DOES dispatch if onPress returns undefined 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test ON_CLICK: DOES dispatch if onPress returns undefined 1`] = `
+exports[`ON_CLICK: dispatches location-aware action 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: dispatches location-aware action 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target="_self">
+  target="_self"
+>
   CLICK ME
 </a>
 `;
 
-exports[`test ON_CLICK: dispatches location-aware action 2`] = `
+exports[`ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target="_self">
-  CLICK ME
-</a>
+  target={undefined}
+/>
 `;
 
-exports[`test ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
+exports[`ON_CLICK: does NOT dispatch if shouldDispatch === false 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test ON_CLICK: does NOT dispatch if onPress returns false 2`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_CLICK: does NOT dispatch if shouldDispatch === false 1`] = `
-<a
-  href="/first"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test ON_MOUSE_DOWN: dispatches action onMouseDown if down === true 1`] = `
+exports[`ON_MOUSE_DOWN: dispatches action onMouseDown if down === true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={[Function]}
   onTouchStart={[Function]}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test ON_TOUCH_START: dispatches action onTouchStart if down === true 1`] = `
+exports[`ON_TOUCH_START: dispatches action onTouchStart if down === true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
   onMouseDown={[Function]}
   onTouchStart={[Function]}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test converts href as action object to path 1`] = `
+exports[`converts href as action object to path 1`] = `
 <a
   href="/second/bar"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test converts href as action object to path 2`] = `
+exports[`converts href as array of strings to path 1`] = `
 <a
   href="/second/bar"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test converts href as array of strings to path 1`] = `
-<a
-  href="/second/bar"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test converts href as array of strings to path 2`] = `
-<a
-  href="/second/bar"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test converts href as non-matched action object to "#" for path 1`] = `
+exports[`converts href as non-matched action object to "#" for path 1`] = `
 <a
   href="#"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;
 
-exports[`test converts href as non-matched action object to "#" for path 2`] = `
+exports[`converts invalid href to "#" for path 1`] = `
 <a
   href="#"
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test converts invalid hre to "#" for path 1`] = `
-<a
-  href="#"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
-`;
-
-exports[`test converts invalid href to "#" for path 1`] = `
-<a
-  href="#"
-  onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined} />
+  target={undefined}
+/>
 `;

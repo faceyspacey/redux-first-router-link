@@ -1,32 +1,34 @@
 {
-  "name": "pure-redux-router-link",
-  "version": "1.0.14",
-  "description": "a simple but effective <Link /> component for pure-redux-router (better for SEO rather than dispatching yourself)",
+  "name": "redux-first-router-link",
+  "version": "0.0.0-development",
+  "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/Link.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "push": "git add --all && git commit -a -m 'build' && git push",
-    "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min",
     "build": "babel src -d dist",
-    "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack src/Link.js dist/pure-redux-router-link.js",
-    "build:umd:min": "BABEL_ENV=commonjs NODE_ENV=production webpack src/Link.js dist/pure-redux-router-link.min.js",
+    "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack src/Link.js dist/redux-first-router-link.js",
+    "build:umd:min": "BABEL_ENV=commonjs NODE_ENV=production webpack src/Link.js dist/redux-first-router-link.min.js",
     "flow-copy": "flow-copy-source src dist",
     "flow-watch": "clear; printf \"\\033[3J\" & npm run flow & fswatch -o ./ | xargs -n1 -I{} sh -c 'clear; printf \"\\033[3J\" && npm run flow'",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "clean": "rimraf dist && mkdir dist"
+    "test": "jest",
+    "clean": "rimraf dist && mkdir dist",
+    "lint": "eslint --fix ./",
+    "format": "prettier --single-quote --parser=flow --semi=false --write '{src,__tests__,__test-helpers__}/**/*.js' && npm run lint",
+    "precommit": "lint-staged --verbose && npm test",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/faceyspacey/pure-redux-router-link.git"
+    "url": "git+https://github.com/faceyspacey/redux-first-router-link.git"
   },
   "author": "James Gillmore <james@faceyspacey.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/faceyspacey/pure-redux-router-link/issues"
+    "url": "https://github.com/faceyspacey/redux-first-router-link/issues"
   },
-  "homepage": "https://github.com/faceyspacey/pure-redux-router-link#readme",
+  "homepage": "https://github.com/faceyspacey/redux-first-router-link#readme",
   "jest": {
     "verbose": true,
     "moduleFileExtensions": [
@@ -34,38 +36,56 @@
     ]
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^6.1.2",
+    "babel-cli": "^6.23.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.3.2",
-    "babel-plugin-flow-react-proptypes": "^0.21.0",
+    "babel-plugin-flow-react-proptypes": "^2.1.3",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-jest": "^18.0.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "eslint": "^3.7.1",
-    "eslint-plugin-babel": "^3.3.0",
-    "eslint-plugin-flow-vars": "^0.5.0",
-    "eslint-plugin-flowtype": "^2.30.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-flowtype": "^2.32.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-react": "^6.3.0",
-    "flow-bin": "^0.38.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "flow-bin": "^0.45.0",
     "flow-copy-source": "^1.1.0",
     "history": "^4.5.1",
-    "jest": "^18.1.0",
-    "pure-redux-router": "^1.0.35",
+    "husky": "^0.13.2",
+    "jest": "^19.0.2",
+    "lint-staged": "^3.4.0",
+    "prettier": "^1.2.2",
     "react": "^15.x",
-    "react-redux": "^4.x",
-    "react-test-renderer": "^15.4.2",
+    "react-redux": "^5.x",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.x",
+    "redux-first-router": "^1.x",
     "rimraf": "^2.5.4",
-    "webpack": "^2.2.1"
+    "semantic-release": "^6.3.2",
+    "travis-github-status": "^1.4.0",
+    "webpack": "2.4.1"
   },
   "peerDependencies": {
     "react": "^15.x",
-    "react-redux": "^4.x",
+    "react-redux": "^5.x",
     "redux": "^3.x",
-    "pure-redux-router": "^1.x"
+    "redux-first-router": "^1.x"
   },
-  "dependencies": {}
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --parser=flow --semi=false --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
 }
