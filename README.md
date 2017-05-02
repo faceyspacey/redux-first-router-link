@@ -1,4 +1,6 @@
 # redux-first-router-link
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/faceyspacey/redux-first-router-link.svg)](https://greenkeeper.io/)
 A simple but effective `<Link />` component for [redux-first-router](https://github.com/faceyspacey/redux-first-router) (better for SEO rather than dispatching yourself)
 
 
