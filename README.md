@@ -1,7 +1,38 @@
 # redux-first-router-link
-A simple but effective `<Link />` component for [redux-first-router](https://github.com/faceyspacey/redux-first-router) (better for SEO rather than dispatching yourself)
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/redux-first-router-link">
+    <img src="https://img.shields.io/npm/v/redux-first-router-link.svg" alt="Version" />
+  </a>
 
+  <a href="https://travis-ci.org/faceyspacey/redux-first-router-link">
+    <img src="https://travis-ci.org/faceyspacey/redux-first-router-link.svg?branch=master" alt="Build Status" />
+  </a>
+
+  <a href="https://lima.codeclimate.com/github/faceyspacey/redux-first-router-link/coverage">
+    <img src="https://lima.codeclimate.com/github/faceyspacey/redux-first-router-link/badges/coverage.svg" alt="Coverage Status"/>
+  </a>
+
+  <a href="https://greenkeeper.io">
+    <img src="https://badges.greenkeeper.io/faceyspacey/redux-first-router-link.svg" alt="Green Keeper" />
+  </a>
+
+  <a href="https://lima.codeclimate.com/github/faceyspacey/redux-first-router-link">
+    <img src="https://lima.codeclimate.com/github/faceyspacey/redux-first-router-link/badges/gpa.svg" alt="GPA" />
+  </a>
+
+  <a href="https://www.npmjs.com/package/redux-first-router-link">
+    <img src="https://img.shields.io/npm/dt/redux-first-router-link.svg" alt="Downloads" />
+  </a>
+  
+  <a href="https://snyk.io/test/github/faceyspacey/redux-first-router-link">
+    <img src="https://snyk.io/test/github/faceyspacey/redux-first-router-link/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/faceyspacey/redux-first-router-link">
+  </a>
+
+  <a href="https://www.npmjs.com/package/redux-first-router">
+    <img src="https://img.shields.io/npm/l/redux-first-router.svg" alt="License" />
+  </a>
+</p>
 
 ## Installation
 ```bash
