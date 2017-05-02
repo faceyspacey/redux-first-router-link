@@ -15,5 +15,6 @@ module.file_ext=.js
 module.file_ext=.json
 module.system=haste
 
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue

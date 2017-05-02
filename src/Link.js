@@ -26,13 +26,13 @@ const Link = (
     dispatch,
     ...props
   }: {
-    href: string | Array<string> | Object, // eslint-disable-line flowtype/no-weak-types,
-    children?: any, // eslint-disable-line flowtype/no-weak-types
+    href: string | Array<string> | Object,
+    children?: any,
     onPress?: false | ((SyntheticEvent) => ?boolean),
     down?: boolean,
     shouldDispatch?: boolean,
     target?: string,
-    dispatch: Function // eslint-disable-line flowtype/no-weak-types
+    dispatch: Function
   },
   { store }: Context
 ) => {
@@ -86,4 +86,5 @@ type Context = {
 
 const connector: Connector<OwnProps, Props> = connect()
 
+// $FlowIgnore
 export default connector(Link)

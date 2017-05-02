@@ -3,7 +3,7 @@
 import { actionToPath } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 
-export type Href = string | Array<string> | Object // eslint-disable-line flowtype/no-weak-types
+export type Href = string | Array<string> | Object
 
 export default (href: Href, routesMap: RoutesMap): string => {
   if (typeof href === 'string') {
