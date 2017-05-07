@@ -94,5 +94,23 @@ module.exports = {
         ignoreTemplateLiterals: true
       }
     ]
-  }
+  },
+  'react/sort-comp': [
+    2,
+    {
+      order: [
+        'propTypes',
+        'props',
+        'state',
+        'defaultProps',
+        'contextTypes',
+        'childContextTypes',
+        'getChildContext',
+        'static-methods',
+        'lifecycle',
+        'everything-else',
+        'render'
+      ]
+    }
+  ]
 }
