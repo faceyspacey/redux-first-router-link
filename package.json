@@ -88,5 +88,7 @@
       "git add"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "prop-types": "15.5.10"
+  }
 }

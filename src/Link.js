@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
@@ -64,7 +65,7 @@ const Link = (
 }
 
 Link.contextTypes = {
-  store: React.PropTypes.object.isRequired
+  store: PropTypes.object.isRequired
 }
 
 type OwnProps = {
