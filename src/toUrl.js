@@ -3,17 +3,17 @@
 import { actionToPath } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 
-export type Href = string | Array<string> | Object
+export type To = string | Array<string> | Object
 
-export default (href: Href, routesMap: RoutesMap): string => {
-  if (typeof href === 'string') {
-    return href
+export default (to?: ?To, routesMap: RoutesMap): string => {
+  if (to && typeof to === 'string') {
+    return to
   }
-  else if (Array.isArray(href)) {
-    return `/${href.join('/')}`
+  else if (Array.isArray(to)) {
+    return `/${to.join('/')}`
   }
-  else if (typeof href === 'object') {
-    const action = href
+  else if (typeof to === 'object') {
+    const action = to
 
     try {
       return actionToPath(action, routesMap)
@@ -31,8 +31,8 @@ export default (href: Href, routesMap: RoutesMap): string => {
   }
 
   console.warn(
-    '[redux-first-router-link] `href` prop must be a string, array or action object. You provided:',
-    href
+    '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
+    to
   )
   return '#'
 }

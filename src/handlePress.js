@@ -1,37 +1,49 @@
 // @flow
 
-import { pathToAction } from 'redux-first-router'
+import { pathToAction, redirect } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
-import type { Href } from './hrefToUrl'
+import type { To } from './toUrl'
 
-export type OnPress = false | ((SyntheticEvent) => ?boolean)
+export type OnClick = false | ((SyntheticEvent) => ?boolean)
 export default (
   url: string,
   routesMap: RoutesMap,
-  onPress: ?OnPress,
+  onClick?: ?OnClick,
   shouldDispatch: boolean,
   target: ?string,
   dispatch: Function,
-  href?: Href,
+  to?: ?To,
+  dispatchRedirect?: boolean,
   e: SyntheticEvent
 ) => {
-  if (target !== '_blank' && e && e.preventDefault) {
-    e.preventDefault()
-  }
-
   let shouldGo = true
 
-  if (onPress) {
-    shouldGo = onPress(e) // onPress can return false to prevent dispatch
+  if (onClick) {
+    shouldGo = onClick(e) // onClick can return false to prevent dispatch
     shouldGo = typeof shouldGo === 'undefined' ? true : shouldGo
   }
 
-  if (shouldGo && shouldDispatch && target !== '_blank') {
-    const action = isAction(href) ? href : pathToAction(url, routesMap)
+  const prevented = e.defaultPrevented
 
+  if (!target && e && e.preventDefault) {
+    e.preventDefault()
+  }
+
+  if (
+    shouldGo &&
+    shouldDispatch &&
+    !target &&
+    !prevented &&
+    e.button === 0 &&
+    !isModified(e)
+  ) {
+    let action = isAction(to) ? to : pathToAction(url, routesMap)
+    action = dispatchRedirect ? redirect(action) : action
     dispatch(action)
   }
 }
 
-const isAction = (href?: Href) =>
-  typeof href === 'object' && !Array.isArray(href)
+const isAction = (to: ?To) => typeof to === 'object' && !Array.isArray(to)
+
+const isModified = (e: Object) =>
+  !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey)

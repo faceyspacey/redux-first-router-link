@@ -6,30 +6,35 @@ import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 
-import hrefToUrl from './hrefToUrl'
+import toUrl from './toUrl'
 import handlePress from './handlePress'
 import preventDefault from './preventDefault'
 
-import type { Href } from './hrefToUrl'
-import type { OnPress } from './handlePress'
+import type { To } from './toUrl'
+import type { OnClick } from './handlePress'
 
-// note: unfortunately, babel-plugin-flow-react-proptypes currently requires
-// React components to have props defined in place, hence the redundancy below
-
-const Link = (
+export const Link = (
   {
+    to,
     href,
+    redirect,
+    replace,
     children,
     onPress,
+    onClick,
     down = false,
     shouldDispatch = true,
     target,
     dispatch,
     ...props
   }: {
-    href: string | Array<string> | Object,
+    to: To,
+    href?: To,
+    redirect?: boolean,
+    replace?: boolean,
     children?: any,
-    onPress?: false | ((SyntheticEvent) => ?boolean),
+    onPress?: OnClick,
+    onClick?: OnClick,
     down?: boolean,
     shouldDispatch?: boolean,
     target?: string,
@@ -37,17 +42,20 @@ const Link = (
   },
   { store }: Context
 ) => {
+  to = href || to // href is deprecated and will be removed in next major version
+
   const { routesMap } = store.getState().location
-  const url = hrefToUrl(href, routesMap)
+  const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
     null,
     url,
     routesMap,
-    onPress,
+    onPress || onClick,
     shouldDispatch,
     target,
     dispatch,
-    href
+    to,
+    replace || redirect
   )
 
   return (
@@ -69,9 +77,13 @@ Link.contextTypes = {
 }
 
 type OwnProps = {
-  href: Href,
+  to: To,
+  href?: To,
+  redirect?: boolean,
+  replace?: boolean,
   children?: any, // eslint-disable-line flowtype/no-weak-types
-  onPress?: OnPress,
+  onPress?: OnClick,
+  onClick?: OnClick,
   down?: boolean,
   shouldDispatch?: boolean,
   target?: string

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ON_CLICK: DOES dispatch if onPress returns true 1`] = `
+exports[`ON_CLICK: DOES dispatch if onClick returns true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
@@ -10,7 +10,7 @@ exports[`ON_CLICK: DOES dispatch if onPress returns true 1`] = `
 />
 `;
 
-exports[`ON_CLICK: DOES dispatch if onPress returns undefined 1`] = `
+exports[`ON_CLICK: DOES dispatch if onClick returns undefined 1`] = `
 <a
   href="/first"
   onClick={[Function]}
@@ -26,13 +26,25 @@ exports[`ON_CLICK: dispatches location-aware action 1`] = `
   onClick={[Function]}
   onMouseDown={false}
   onTouchStart={false}
-  target="_self"
+  target={undefined}
 >
   CLICK ME
 </a>
 `;
 
-exports[`ON_CLICK: does NOT dispatch if onPress returns false 1`] = `
+exports[`ON_CLICK: dispatches redirect if redirect === true 1`] = `
+<a
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  target={undefined}
+>
+  CLICK ME
+</a>
+`;
+
+exports[`ON_CLICK: does NOT dispatch if onClick returns false 1`] = `
 <a
   href="/first"
   onClick={[Function]}

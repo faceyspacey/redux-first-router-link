@@ -1,12 +1,10 @@
 import { NOT_FOUND } from 'redux-first-router'
-
 import createLink, { event } from '../__test-helpers__/createLink'
 
-it('ON_CLICK: dispatches location-aware action', () => {
+test('ON_CLICK: dispatches location-aware action', () => {
   const { tree, store } = createLink({
-    href: '/first',
-    children: 'CLICK ME',
-    target: '_self'
+    to: '/first',
+    children: 'CLICK ME'
   }) /*? $.tree */
 
   expect(tree).toMatchSnapshot() /*? store.getState() */
@@ -20,11 +18,11 @@ it('ON_CLICK: dispatches location-aware action', () => {
 })
 
 it('ON_CLICK: does NOT dispatch if shouldDispatch === false', () => {
-  const { tree, store } = createLink({ href: '/first', shouldDispatch: false })
+  const { tree, store } = createLink({ to: '/first', shouldDispatch: false })
 
   expect(tree).toMatchSnapshot()
 
-  tree.props.onClick()
+  tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
 
@@ -33,12 +31,12 @@ it('ON_CLICK: does NOT dispatch if shouldDispatch === false', () => {
   expect(location.pathname).toEqual('/')
 })
 
-it('ON_CLICK: does NOT dispatch if onPress returns false', () => {
-  const { tree, store } = createLink({ href: '/first', onPress: () => false })
+it('ON_CLICK: does NOT dispatch if onClick returns false', () => {
+  const { tree, store } = createLink({ to: '/first', onClick: () => false })
 
   expect(tree).toMatchSnapshot()
 
-  tree.props.onClick()
+  tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
 
@@ -47,12 +45,12 @@ it('ON_CLICK: does NOT dispatch if onPress returns false', () => {
   expect(location.pathname).toEqual('/')
 })
 
-it('ON_CLICK: DOES dispatch if onPress returns true', () => {
-  const { tree, store } = createLink({ href: '/first', onPress: () => true })
+it('ON_CLICK: DOES dispatch if onClick returns true', () => {
+  const { tree, store } = createLink({ to: '/first', onClick: () => true })
 
   expect(tree).toMatchSnapshot()
 
-  tree.props.onClick()
+  tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
 
@@ -60,15 +58,15 @@ it('ON_CLICK: DOES dispatch if onPress returns true', () => {
   expect(location.type).toEqual('FIRST')
 })
 
-it('ON_CLICK: DOES dispatch if onPress returns undefined', () => {
+it('ON_CLICK: DOES dispatch if onClick returns undefined', () => {
   const { tree, store } = createLink({
-    href: '/first',
-    onPress: () => undefined
+    to: '/first',
+    onClick: () => undefined
   })
 
   expect(tree).toMatchSnapshot()
 
-  tree.props.onClick()
+  tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
 
@@ -78,7 +76,7 @@ it('ON_CLICK: DOES dispatch if onPress returns undefined', () => {
 
 it('ON_MOUSE_DOWN: dispatches action onMouseDown if down === true', () => {
   const { tree, store } = createLink({
-    href: '/first',
+    to: '/first',
     down: true
   }) /*? $.tree */
 
@@ -89,7 +87,7 @@ it('ON_MOUSE_DOWN: dispatches action onMouseDown if down === true', () => {
   let { location } = store.getState()
   expect(location.pathname).toEqual('/')
 
-  tree.props.onMouseDown()
+  tree.props.onMouseDown(event)
 
   location = store.getState().location /*? */
 
@@ -97,15 +95,32 @@ it('ON_MOUSE_DOWN: dispatches action onMouseDown if down === true', () => {
   expect(location.type).toEqual('FIRST')
 })
 
+it('ON_CLICK: dispatches redirect if redirect === true', () => {
+  const { tree, store } = createLink({
+    to: '/first',
+    children: 'CLICK ME',
+    redirect: true
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot() /*? store.getState() */
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState() /*? $.location */
+
+  expect(location.pathname).toEqual('/first')
+  expect(location.kind).toEqual('redirect')
+})
+
 it('ON_TOUCH_START: dispatches action onTouchStart if down === true', () => {
   const { tree, store } = createLink({
-    href: '/first',
+    to: '/first',
     down: true
   }) /*? $.tree */
 
   expect(tree).toMatchSnapshot()
 
-  tree.props.onTouchStart()
+  tree.props.onTouchStart(event)
 
   const { location } = store.getState() /*? $.location */
 
@@ -114,7 +129,7 @@ it('ON_TOUCH_START: dispatches action onTouchStart if down === true', () => {
 })
 
 it('converts href as array of strings to path', () => {
-  const { tree, store } = createLink({ href: ['second', 'bar'] }) /*? $.tree */
+  const { tree, store } = createLink({ to: ['second', 'bar'] }) /*? $.tree */
 
   expect(tree).toMatchSnapshot() /*? store.getState() */
 
@@ -128,7 +143,7 @@ it('converts href as array of strings to path', () => {
 
 it('converts href as action object to path', () => {
   const action = { type: 'SECOND', payload: { param: 'bar' } }
-  const { tree, store } = createLink({ href: action }) /*? $.tree */
+  const { tree, store } = createLink({ to: action }) /*? $.tree */
 
   expect(tree).toMatchSnapshot() /*? store.getState() */
 
@@ -142,7 +157,7 @@ it('converts href as action object to path', () => {
 
 it('converts href as non-matched action object to "#" for path', () => {
   const action = { type: 'MISSED' }
-  const { tree, store } = createLink({ href: action }) /*? $.tree */
+  const { tree, store } = createLink({ to: action }) /*? $.tree */
 
   expect(tree.props.href).toEqual('#')
   expect(tree).toMatchSnapshot()
@@ -154,7 +169,7 @@ it('converts href as non-matched action object to "#" for path', () => {
 })
 
 it('converts invalid href to "#" for path', () => {
-  const { tree, store } = createLink({}) /*? $.tree */
+  const { tree, store } = createLink({ to: '' }) /*? $.tree */
 
   expect(tree.props.href).toEqual('#')
   expect(tree).toMatchSnapshot()

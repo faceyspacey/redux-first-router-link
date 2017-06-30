@@ -56,6 +56,7 @@ module.exports = {
     'no-unused-vars': 1,
     'import/no-unresolved': 1,
     'flowtype/no-weak-types': 1,
+    'import/no-named-as-default': 1,
     semi: [2, 'never'],
     'no-console': [2, { allow: ['warn', 'error'] }],
     'flowtype/semi': [2, 'never'],

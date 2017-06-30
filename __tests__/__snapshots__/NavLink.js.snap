@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EXACT: DONT show active class 1`] = `
+<a
+  className={undefined}
+  href="/second"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={undefined}
+  target={undefined}
+/>
+`;
+
+exports[`NON-EXACT: show active class 1`] = `
+<a
+  className="active"
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={Object {}}
+  target={undefined}
+/>
+`;
+
+exports[`STRICT: DONT show active class 1`] = `
+<a
+  className={undefined}
+  href="/first/"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={undefined}
+  target={undefined}
+/>
+`;
+
+exports[`combine with existing styles and class 1`] = `
+<a
+  className="foo active"
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 32,
+    }
+  }
+  target={undefined}
+/>
+`;
+
+exports[`isActive return false 1`] = `
+Object {
+  "isExact": true,
+  "params": Object {},
+  "path": "/first",
+  "url": "/first",
+}
+`;
+
+exports[`isActive return false 2`] = `
+Object {
+  "hasSSR": undefined,
+  "history": undefined,
+  "kind": "load",
+  "pathname": "/first",
+  "payload": Object {},
+  "prev": Object {
+    "pathname": "",
+    "payload": Object {},
+    "type": "",
+  },
+  "routesMap": Object {
+    "FIRST": "/first",
+    "SECOND": "/second/:param",
+  },
+  "type": "FIRST",
+}
+`;
+
+exports[`isActive return false 3`] = `
+<a
+  className={undefined}
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={undefined}
+  target={undefined}
+/>
+`;
+
+exports[`isActive returns true 1`] = `
+Object {
+  "isExact": true,
+  "params": Object {},
+  "path": "/first",
+  "url": "/first",
+}
+`;
+
+exports[`isActive returns true 2`] = `
+Object {
+  "hasSSR": undefined,
+  "history": undefined,
+  "kind": "load",
+  "pathname": "/first",
+  "payload": Object {},
+  "prev": Object {
+    "pathname": "",
+    "payload": Object {},
+    "type": "",
+  },
+  "routesMap": Object {
+    "FIRST": "/first",
+    "SECOND": "/second/:param",
+  },
+  "type": "FIRST",
+}
+`;
+
+exports[`isActive returns true 3`] = `
+<a
+  className="active"
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={Object {}}
+  target={undefined}
+/>
+`;
+
+exports[`reacts to state changes (onClick) 1`] = `
+<a
+  className={undefined}
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={undefined}
+  target={undefined}
+/>
+`;
+
+exports[`reacts to state changes (onClick) 2`] = `
+<a
+  className="active"
+  href="/second/bar"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={Object {}}
+  target={undefined}
+/>
+`;
+
+exports[`show activeStyle 1`] = `
+<a
+  className=""
+  href="/first"
+  onClick={[Function]}
+  onMouseDown={false}
+  onTouchStart={false}
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+  target={undefined}
+/>
+`;
