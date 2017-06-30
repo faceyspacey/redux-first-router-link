@@ -2,7 +2,7 @@
   "name": "redux-first-router-link",
   "version": "0.0.0-development",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
-  "main": "dist/Link.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
     "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack src/Link.js dist/redux-first-router-link.js",
