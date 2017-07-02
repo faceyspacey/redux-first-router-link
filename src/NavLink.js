@@ -44,7 +44,7 @@ const NavLink = (
     activeStyle?: Object,
     exact?: boolean,
     strict?: boolean,
-    isActive?: (Object, Object) => boolean
+    isActive?: (?Object, Object) => boolean
   },
   { store }: Context
 ) => {

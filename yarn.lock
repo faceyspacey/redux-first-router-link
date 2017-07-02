@@ -2407,9 +2407,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.45.0:
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.45.0.tgz#009dd0f577a3f665c74ca8be827ae8c2dd8fd6b5"
+flow-bin@^0.49.1:
+  version "0.49.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.49.1.tgz#c9e456b3173a7535a4ffaf28956352c63bb8e3e9"
 
 flow-copy-source@^1.1.0:
   version "1.1.0"
@@ -4783,9 +4783,9 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux-first-router@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-1.7.1.tgz#26e286298b62e92a029d16817ed518718ba844ec"
+redux-first-router@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-1.7.2.tgz#dde8995f092c1c7d660e413f5fe6935630e7cd5e"
   dependencies:
     path-to-regexp "^1.7.0"
 
@@ -4890,33 +4890,7 @@ request-promise@^4.1.1:
     request-promise-core "1.1.1"
     stealthy-require "^1.0.0"
 
-request@^2.74.0, request@~2.74.0:
-  version "2.74.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.74.0.tgz#7693ca768bbb0ea5c8ce08c084a45efa05b892ab"
-  dependencies:
-    aws-sign2 "~0.6.0"
-    aws4 "^1.2.1"
-    bl "~1.1.2"
-    caseless "~0.11.0"
-    combined-stream "~1.0.5"
-    extend "~3.0.0"
-    forever-agent "~0.6.1"
-    form-data "~1.0.0-rc4"
-    har-validator "~2.0.6"
-    hawk "~3.1.3"
-    http-signature "~1.1.0"
-    is-typedarray "~1.0.0"
-    isstream "~0.1.2"
-    json-stringify-safe "~5.0.1"
-    mime-types "~2.1.7"
-    node-uuid "~1.4.7"
-    oauth-sign "~0.8.1"
-    qs "~6.2.0"
-    stringstream "~0.0.4"
-    tough-cookie "~2.3.0"
-    tunnel-agent "~0.4.1"
-
-request@^2.78.0, request@^2.79.0, request@^2.81.0:
+request@^2.74.0, request@^2.78.0, request@^2.79.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -4942,6 +4916,32 @@ request@^2.78.0, request@^2.79.0, request@^2.81.0:
     tough-cookie "~2.3.0"
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
+
+request@~2.74.0:
+  version "2.74.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.74.0.tgz#7693ca768bbb0ea5c8ce08c084a45efa05b892ab"
+  dependencies:
+    aws-sign2 "~0.6.0"
+    aws4 "^1.2.1"
+    bl "~1.1.2"
+    caseless "~0.11.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.0"
+    forever-agent "~0.6.1"
+    form-data "~1.0.0-rc4"
+    har-validator "~2.0.6"
+    hawk "~3.1.3"
+    http-signature "~1.1.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.7"
+    node-uuid "~1.4.7"
+    oauth-sign "~0.8.1"
+    qs "~6.2.0"
+    stringstream "~0.0.4"
+    tough-cookie "~2.3.0"
+    tunnel-agent "~0.4.1"
 
 require-directory@^2.1.1:
   version "2.1.1"
@@ -5022,9 +5022,9 @@ ripemd160@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-1.0.1.tgz#93a4bbd4942bc574b69a8fa57c71de10ecca7d6e"
 
-rudy-match-path@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/rudy-match-path/-/rudy-match-path-0.0.2.tgz#af88d3b1d82057118a159910f0997e89625f0ecb"
+rudy-match-path@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/rudy-match-path/-/rudy-match-path-0.1.0.tgz#5811458b234cab3502a4e548a5dedf527549a294"
   dependencies:
     path-to-regexp "^1.7.0"
 
@@ -5625,9 +5625,9 @@ travis-deploy-once@1.0.0-node-0.10-support:
     request-promise "^4.1.1"
     travis-ci "^2.1.1"
 
-travis-github-status@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/travis-github-status/-/travis-github-status-1.5.4.tgz#0441a9151c5f830e3cb56da2f9c333b9bf289987"
+travis-github-status@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/travis-github-status/-/travis-github-status-1.6.2.tgz#2645921d34c6b44f702493dc6f52dc2ddfc4ee87"
   dependencies:
     codeclimate-test-reporter "^0.4.1"
     colors "^1.1.2"

@@ -53,7 +53,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "flow-bin": "^0.45.0",
+    "flow-bin": "^0.49.1",
     "flow-copy-source": "^1.1.0",
     "history": "^4.5.1",
     "husky": "^0.13.2",
@@ -64,10 +64,10 @@
     "react-redux": "^5.x",
     "react-test-renderer": "^15.5.4",
     "redux": "^3.x",
-    "redux-first-router": "^1.7.1",
+    "redux-first-router": "^1.7.2",
     "rimraf": "^2.5.4",
     "semantic-release": "^6.3.2",
-    "travis-github-status": "^1.5.4",
+    "travis-github-status": "^1.6.2",
     "webpack": "2.4.1"
   },
   "peerDependencies": {
@@ -91,6 +91,6 @@
   "dependencies": {
     "path-to-regexp": "^1.7.0",
     "prop-types": "15.5.10",
-    "rudy-match-path": "^0.0.2"
+    "rudy-match-path": "^0.1.0"
   }
 }
