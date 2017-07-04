@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
+import { locationKey } from 'redux-first-router'
 
 import toUrl from './toUrl'
 import handlePress from './handlePress'
@@ -44,7 +45,8 @@ export const Link = (
 ) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const { routesMap } = store.getState().location
+  const location = store.getState()[locationKey()]
+  const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
     null,

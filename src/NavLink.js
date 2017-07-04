@@ -6,9 +6,10 @@ import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
+import { locationKey } from 'redux-first-router'
+
 import { Link } from './Link'
 import toUrl from './toUrl'
-
 import type { To } from './toUrl'
 import type { OnClick } from './handlePress'
 
@@ -49,9 +50,9 @@ const NavLink = (
   { store }: Context
 ) => {
   to = href || to
-  const { location } = store.getState()
-  const path = toUrl(to, location.routesMap)
 
+  const location = store.getState()[locationKey()]
+  const path = toUrl(to, location.routesMap)
   const match = matchPath(pathname, { path, exact, strict })
   const active = !!(isActive ? isActive(match, location) : match)
   return (
