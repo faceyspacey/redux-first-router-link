@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
-import { locationKey } from 'redux-first-router'
+import { selectLocationState } from 'redux-first-router'
 
 import { Link } from './Link'
 import toUrl from './toUrl'
@@ -51,7 +51,7 @@ const NavLink = (
 ) => {
   to = href || to
 
-  const location = store.getState()[locationKey()]
+  const location = selectLocationState(store.getState())
   const path = toUrl(to, location.routesMap)
   const match = matchPath(pathname, { path, exact, strict })
   const active = !!(isActive ? isActive(match, location) : match)
@@ -102,7 +102,7 @@ type Context = {
   store: Store<*, *>
 }
 
-const mapState = ({ location }) => ({ pathname: location.pathname })
+const mapState = state => ({ pathname: selectLocationState(state).pathname })
 const connector: Connector<OwnProps, Props> = connect(mapState)
 
 // $FlowIgnore
