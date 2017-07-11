@@ -4783,9 +4783,9 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux-first-router@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-1.7.4.tgz#79169512b35d9bc46b72f5cbd95b3894f35675a0"
+redux-first-router@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-1.8.0.tgz#2a8a4bfb92045b37c1a3c06bd4bfe3fb0e45baa4"
   dependencies:
     path-to-regexp "^1.7.0"
 
