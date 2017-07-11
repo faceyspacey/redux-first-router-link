@@ -34,6 +34,8 @@
   </a>
 </p>
 
+> UPDATE (July 1st 2017): We now have a `NavLink` package like react-router to show active styles for your links.
+
 ## Installation
 ```bash
 yarn add redux-first-router-link
