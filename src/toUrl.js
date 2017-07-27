@@ -1,6 +1,6 @@
 // @flow
 
-import { actionToPath } from 'redux-first-router'
+import { actionToPath, getOptions } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 
 export type To = string | Array<string> | Object
@@ -16,7 +16,8 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
     const action = to
 
     try {
-      return actionToPath(action, routesMap)
+      const { querySerializer } = getOptions()
+      return actionToPath(action, routesMap, querySerializer)
     }
     catch (e) {
       console.warn(

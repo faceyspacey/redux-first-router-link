@@ -14,6 +14,27 @@ import preventDefault from './preventDefault'
 import type { To } from './toUrl'
 import type { OnClick } from './handlePress'
 
+type OwnProps = {
+  to: To,
+  href?: To,
+  redirect?: boolean,
+  replace?: boolean,
+  children?: any, // eslint-disable-line flowtype/no-weak-types
+  onPress?: OnClick,
+  onClick?: OnClick,
+  down?: boolean,
+  shouldDispatch?: boolean,
+  target?: string
+}
+
+type Props = {
+  dispatch: Function // eslint-disable-line flowtype/no-weak-types
+} & OwnProps
+
+type Context = {
+  store: Store<*, *>
+}
+
 export const Link = (
   {
     to,
@@ -28,19 +49,7 @@ export const Link = (
     target,
     dispatch,
     ...props
-  }: {
-    to: To,
-    href?: To,
-    redirect?: boolean,
-    replace?: boolean,
-    children?: any,
-    onPress?: OnClick,
-    onClick?: OnClick,
-    down?: boolean,
-    shouldDispatch?: boolean,
-    target?: string,
-    dispatch: Function
-  },
+  }: Props,
   { store }: Context
 ) => {
   to = href || to // href is deprecated and will be removed in next major version
@@ -76,27 +85,6 @@ export const Link = (
 
 Link.contextTypes = {
   store: PropTypes.object.isRequired
-}
-
-type OwnProps = {
-  to: To,
-  href?: To,
-  redirect?: boolean,
-  replace?: boolean,
-  children?: any, // eslint-disable-line flowtype/no-weak-types
-  onPress?: OnClick,
-  onClick?: OnClick,
-  down?: boolean,
-  shouldDispatch?: boolean,
-  target?: string
-}
-
-type Props = {
-  dispatch: Function // eslint-disable-line flowtype/no-weak-types
-} & OwnProps
-
-type Context = {
-  store: Store<*, *>
 }
 
 const connector: Connector<OwnProps, Props> = connect()

@@ -13,6 +13,35 @@ import toUrl from './toUrl'
 import type { To } from './toUrl'
 import type { OnClick } from './handlePress'
 
+type OwnProps = {
+  to: To,
+  href?: To,
+  redirect?: boolean,
+  replace?: boolean,
+  children?: any,
+  onPress?: OnClick,
+  onClick?: OnClick,
+  down?: boolean,
+  shouldDispatch?: boolean,
+  target?: string,
+  className?: string,
+  style?: Object,
+  activeClassName?: string,
+  activeStyle?: Object,
+  exact?: boolean,
+  strict?: boolean,
+  isActive?: (?Object, Object) => boolean
+}
+
+type Props = {
+  dispatch: Function,
+  pathname: string
+} & OwnProps
+
+type Context = {
+  store: Store<*, *>
+}
+
 const NavLink = (
   {
     to,
@@ -26,27 +55,7 @@ const NavLink = (
     strict,
     isActive,
     ...props
-  }: {
-    to: To,
-    href?: To,
-    redirect?: boolean,
-    replace?: boolean,
-    children?: any,
-    onPress?: OnClick,
-    onClick?: OnClick,
-    down?: boolean,
-    shouldDispatch?: boolean,
-    target?: string,
-    dispatch: Function,
-    pathname: string,
-    className?: string,
-    style?: Object,
-    activeClassName?: string,
-    activeStyle?: Object,
-    exact?: boolean,
-    strict?: boolean,
-    isActive?: (?Object, Object) => boolean
-  },
+  }: Props,
   { store }: Context
 ) => {
   to = href || to
@@ -71,35 +80,6 @@ const NavLink = (
 
 NavLink.contextTypes = {
   store: PropTypes.object.isRequired
-}
-
-type OwnProps = {
-  to: To,
-  href?: To,
-  redirect?: boolean,
-  replace?: boolean,
-  children?: any, // eslint-disable-line flowtype/no-weak-types
-  onPress?: OnClick,
-  onClick?: OnClick,
-  down?: boolean,
-  shouldDispatch?: boolean,
-  target?: string,
-  className?: string,
-  style?: Object,
-  activeClassName?: string,
-  activeStyle?: Object,
-  exact?: boolean,
-  strict?: boolean,
-  isActive?: (Object, Object) => boolean
-}
-
-type Props = {
-  dispatch: Function, // eslint-disable-line flowtype/no-weak-types
-  pathname: string
-} & OwnProps
-
-type Context = {
-  store: Store<*, *>
 }
 
 const mapState = state => ({ pathname: selectLocationState(state).pathname })

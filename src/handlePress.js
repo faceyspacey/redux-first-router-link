@@ -1,6 +1,6 @@
 // @flow
 
-import { pathToAction, redirect } from 'redux-first-router'
+import { pathToAction, redirect, getOptions } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 import type { To } from './toUrl'
 
@@ -37,7 +37,8 @@ export default (
     e.button === 0 &&
     !isModified(e)
   ) {
-    let action = isAction(to) ? to : pathToAction(url, routesMap)
+    const { querySerializer: serializer } = getOptions()
+    let action = isAction(to) ? to : pathToAction(url, routesMap, serializer)
     action = dispatchRedirect ? redirect(action) : action
     dispatch(action)
   }
