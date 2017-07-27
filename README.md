@@ -1,3 +1,11 @@
+<a href="https://gitter.im/Reactlandia/Lobby" target="_blank">
+  <img alt="Edit Redux-First Router Demo" src="http://cdn.reactlandia.com/chat-badge-reactlandia.png">
+</a>
+
+<a href="https://codesandbox.io/s/github/faceyspacey/redux-first-router-codesandbox" target="_blank">
+  <img alt="Edit Redux-First Router Demo" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
+
 # redux-first-router-link
 
 <p align="center">

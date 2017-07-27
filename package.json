@@ -1,6 +1,6 @@
 {
   "name": "redux-first-router-link",
-  "version": "0.0.3-next",
+  "version": "0.0.0-development",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/index.js",
   "scripts": {
@@ -71,10 +71,10 @@
     "webpack": "2.4.1"
   },
   "peerDependencies": {
-    "react": "^15.x",
-    "react-redux": "^5.x",
-    "redux": "^3.x",
-    "redux-first-router": "^1.x"
+    "react": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "redux-first-router": "*"
   },
   "config": {
     "commitizen": {
