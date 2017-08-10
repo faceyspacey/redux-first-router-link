@@ -25,7 +25,7 @@ export default (
 
   const prevented = e.defaultPrevented
 
-  if (!target && e && e.preventDefault && !isModified(e) ) {
+  if (!target && e && e.preventDefault && !isModified(e)) {
     e.preventDefault()
   }
 
