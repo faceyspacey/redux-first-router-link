@@ -173,4 +173,3 @@ Below is a screenshot of this module's tests running in [Wallaby](https://wallab
 
 
 ![redux-first-router-link tests screenshot](./screenshot.png)
-
