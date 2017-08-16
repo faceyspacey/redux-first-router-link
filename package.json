@@ -66,7 +66,7 @@
     "redux": "^3.x",
     "redux-first-router": "next",
     "rimraf": "^2.5.4",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^7.0.1",
     "travis-github-status": "^1.6.2",
     "webpack": "2.4.1"
   },
