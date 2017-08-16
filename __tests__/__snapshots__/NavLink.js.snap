@@ -5,10 +5,7 @@ exports[`EXACT: DONT show active class 1`] = `
   className={undefined}
   href="/second"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={undefined}
-  target={undefined}
 />
 `;
 
@@ -17,10 +14,7 @@ exports[`NON-EXACT: show active class 1`] = `
   className="active"
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={Object {}}
-  target={undefined}
 />
 `;
 
@@ -29,10 +23,7 @@ exports[`STRICT: DONT show active class 1`] = `
   className={undefined}
   href="/first/"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={undefined}
-  target={undefined}
 />
 `;
 
@@ -41,15 +32,12 @@ exports[`combine with existing styles and class 1`] = `
   className="foo active"
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={
     Object {
       "color": "red",
       "fontSize": 32,
     }
   }
-  target={undefined}
 />
 `;
 
@@ -87,10 +75,7 @@ exports[`isActive return false 3`] = `
   className={undefined}
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={undefined}
-  target={undefined}
 />
 `;
 
@@ -128,10 +113,7 @@ exports[`isActive returns true 3`] = `
   className="active"
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={Object {}}
-  target={undefined}
 />
 `;
 
@@ -140,10 +122,7 @@ exports[`reacts to state changes (onClick) 1`] = `
   className={undefined}
   href="/second/bar"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={undefined}
-  target={undefined}
 />
 `;
 
@@ -152,10 +131,7 @@ exports[`reacts to state changes (onClick) 2`] = `
   className="active"
   href="/second/bar"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={Object {}}
-  target={undefined}
 />
 `;
 
@@ -164,13 +140,10 @@ exports[`show activeStyle 1`] = `
   className=""
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
   style={
     Object {
       "color": "red",
     }
   }
-  target={undefined}
 />
 `;

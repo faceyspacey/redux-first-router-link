@@ -4,9 +4,6 @@ exports[`ON_CLICK: DOES dispatch if onClick returns true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -14,9 +11,6 @@ exports[`ON_CLICK: DOES dispatch if onClick returns undefined 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -24,9 +18,6 @@ exports[`ON_CLICK: dispatches location-aware action 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 >
   CLICK ME
 </a>
@@ -36,9 +27,6 @@ exports[`ON_CLICK: dispatches redirect if redirect === true 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 >
   CLICK ME
 </a>
@@ -48,9 +36,6 @@ exports[`ON_CLICK: does NOT dispatch if onClick returns false 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -58,9 +43,6 @@ exports[`ON_CLICK: does NOT dispatch if shouldDispatch === false 1`] = `
 <a
   href="/first"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -70,7 +52,6 @@ exports[`ON_MOUSE_DOWN: dispatches action onMouseDown if down === true 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   onTouchStart={[Function]}
-  target={undefined}
 />
 `;
 
@@ -80,7 +61,6 @@ exports[`ON_TOUCH_START: dispatches action onTouchStart if down === true 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   onTouchStart={[Function]}
-  target={undefined}
 />
 `;
 
@@ -88,9 +68,6 @@ exports[`converts href as action object to path 1`] = `
 <a
   href="/second/bar"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -98,9 +75,6 @@ exports[`converts href as array of strings to path 1`] = `
 <a
   href="/second/bar"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -108,9 +82,6 @@ exports[`converts href as non-matched action object to "#" for path 1`] = `
 <a
   href="#"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
 />
 `;
 
@@ -118,8 +89,18 @@ exports[`converts invalid href to "#" for path 1`] = `
 <a
   href="#"
   onClick={[Function]}
-  onMouseDown={false}
-  onTouchStart={false}
-  target={undefined}
+/>
+`;
+
+exports[`supports custom HTML tag name 1`] = `
+<div
+  onClick={[Function]}
+/>
+`;
+
+exports[`supports custom HTML tag name which is still a link 1`] = `
+<a
+  href="somewhere"
+  onClick={[Function]}
 />
 `;
