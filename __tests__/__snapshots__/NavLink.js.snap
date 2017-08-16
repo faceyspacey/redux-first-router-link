@@ -147,3 +147,28 @@ exports[`show activeStyle 1`] = `
   }
 />
 `;
+
+exports[`supports custom HTML tag name 1`] = `
+<div
+  className={undefined}
+  onClick={[Function]}
+  style={undefined}
+/>
+`;
+
+exports[`supports custom HTML tag name in active mode 1`] = `
+<div
+  className="active"
+  onClick={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`supports custom HTML tag name which is still a link 1`] = `
+<a
+  className={undefined}
+  href="somewhere"
+  onClick={[Function]}
+  style={undefined}
+/>
+`;

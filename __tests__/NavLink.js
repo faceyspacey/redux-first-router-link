@@ -96,3 +96,32 @@ test('isActive return false', () => {
 
   expect(tree).toMatchSnapshot()
 })
+
+it('supports custom HTML tag name', () => {
+  const { tree, store } = createNavLink('/first', {
+    to: '/second',
+    activeClassName: 'active',
+    tagName: 'div'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
+
+it('supports custom HTML tag name in active mode', () => {
+  const { tree, store } = createNavLink('/first', {
+    to: '/first',
+    activeClassName: 'active',
+    tagName: 'div'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
+
+it('supports custom HTML tag name which is still a link', () => {
+  const { tree, store } = createNavLink('/first', {
+    to: 'somewhere',
+    tagName: 'a'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
