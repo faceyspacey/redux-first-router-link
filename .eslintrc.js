@@ -13,7 +13,14 @@ module.exports = {
   settings: {
     flowtype: {
       onlyFilesWithFlowAnnotation: true
-    }
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.css', '.json', '.styl']
+      }
+    },
+    'import/extensions': ['.js'],
+    'import/ignore': ['node_modules', 'flow-typed', '\\.(css|styl|svg|json)$']
   },
   globals: {
     window: true,
@@ -29,14 +36,8 @@ module.exports = {
     expect: true,
     beforeEach: true
   },
-  'import/resolver': {
-    node: {
-      extensions: ['.js', '.css', '.json', '.styl']
-    }
-  },
-  'import/extensions': ['.js'],
-  'import/ignore': ['node_modules', 'flow-typed', '\\.(css|styl|svg|json)$'],
   rules: {
+    'jsx-a11y/href-no-hash': 0,
     'no-shadow': 0,
     'no-use-before-define': 0,
     'no-param-reassign': 0,
