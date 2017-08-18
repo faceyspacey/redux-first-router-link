@@ -19,6 +19,7 @@ type OwnProps = {
   href?: To,
   redirect?: boolean,
   replace?: boolean,
+  tagName?: string,
   children?: any, // eslint-disable-line flowtype/no-weak-types
   onPress?: OnClick,
   onClick?: OnClick,
@@ -41,6 +42,7 @@ export const Link = (
     href,
     redirect,
     replace,
+    tagName = 'a',
     children,
     onPress,
     onClick,
@@ -68,18 +70,31 @@ export const Link = (
     to,
     replace || redirect
   )
+  const Root = tagName
+
+  const localProps = {}
+
+  if (tagName === 'a' && url) {
+    localProps.href = url
+  }
+
+  if (down && handler) {
+    localProps.onMouseDown = handler
+    localProps.onTouchStart = handler
+  }
+
+  if (target) {
+    localProps.target = target
+  }
 
   return (
-    <a
-      href={url}
+    <Root
       onClick={(!down && handler) || preventDefault}
-      onMouseDown={down && handler}
-      onTouchStart={down && handler}
-      target={target}
+      {...localProps}
       {...props}
     >
       {children}
-    </a>
+    </Root>
   )
 }
 

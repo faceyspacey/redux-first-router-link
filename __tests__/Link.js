@@ -179,3 +179,21 @@ it('converts invalid href to "#" for path', () => {
   const { location } = store.getState() /*? $.location */
   expect(location.type).toEqual(NOT_FOUND)
 })
+
+it('supports custom HTML tag name', () => {
+  const { tree, store } = createLink({
+    to: 'somewhere',
+    tagName: 'div'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
+
+it('supports custom HTML tag name which is still a link', () => {
+  const { tree, store } = createLink({
+    to: 'somewhere',
+    tagName: 'a'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})

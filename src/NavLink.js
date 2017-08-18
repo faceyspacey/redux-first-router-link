@@ -64,18 +64,24 @@ const NavLink = (
   const path = toUrl(to, location.routesMap)
   const match = matchPath(pathname, { path, exact, strict })
   const active = !!(isActive ? isActive(match, location) : match)
-  return (
-    <Link
-      to={to}
-      className={
-        active
-          ? [className, activeClassName].filter(i => i).join(' ')
-          : className
-      }
-      style={active ? { ...style, ...activeStyle } : style}
-      {...props}
-    />
-  )
+
+  const localClassName = active
+    ? [className, activeClassName].filter(i => i).join(' ')
+    : className
+
+  const localStyle = active ? { ...style, ...activeStyle } : style
+
+  const localProps = {}
+
+  if (localClassName) {
+    localProps.className = localClassName
+  }
+
+  if (localStyle && Object.keys(localStyle).length > 0) {
+    localProps.style = localStyle
+  }
+
+  return <Link to={to} {...localProps} {...props} />
 }
 
 NavLink.contextTypes = {
