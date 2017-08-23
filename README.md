@@ -153,6 +153,7 @@ const to = `/list/${category}` // can get long & yucky with lots of variables
 * **exact: boolean = false** - if `true` supplied, active class/styles will not be applied in this example: URL is `/foo/bar` and link `to` is `/foo`. Whereas by default they would match.
 * **strict: boolean = false** - if there is a trailing slash in the `to` path or URL, they both must have the slash to match. If there is no slash, they must both have *no* slash.
 * **isActive: (match, location) => boolean** - a custom function to determine whether the link is active. Return `true` if active. The `match` argument is identical to React Router and not very useful. The `location` is `state.location`.
+* **ariaCurrent: string** - defaults to `'true'` when active. It's for screen-readers. Learn more [here](https://tink.uk/using-the-aria-current-attribute).
 
 ## Final Notes
 * In previous versions the `to` prop was named `href` and the `onClick` prop was name `onPress`. Those still work, but they are identical to their new names. They will be removed eventually. 
