@@ -49,7 +49,7 @@ const NavLink = (
     pathname,
     className,
     style,
-    activeClassName,
+    activeClassName = 'active',
     activeStyle,
     exact,
     strict,
