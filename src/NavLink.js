@@ -28,6 +28,7 @@ type OwnProps = {
   style?: Object,
   activeClassName?: string,
   activeStyle?: Object,
+  ariaCurrent?: string,
   exact?: boolean,
   strict?: boolean,
   isActive?: (?Object, Object) => boolean
@@ -49,8 +50,9 @@ const NavLink = (
     pathname,
     className,
     style,
-    activeClassName,
+    activeClassName = 'active',
     activeStyle,
+    ariaCurrent = 'true',
     exact,
     strict,
     isActive,
@@ -65,23 +67,21 @@ const NavLink = (
   const match = matchPath(pathname, { path, exact, strict })
   const active = !!(isActive ? isActive(match, location) : match)
 
-  const localClassName = active
+  const combinedClassName = active
     ? [className, activeClassName].filter(i => i).join(' ')
     : className
 
-  const localStyle = active ? { ...style, ...activeStyle } : style
+  const combinedStyle = active ? { ...style, ...activeStyle } : style
 
-  const localProps = {}
-
-  if (localClassName) {
-    localProps.className = localClassName
-  }
-
-  if (localStyle && Object.keys(localStyle).length > 0) {
-    localProps.style = localStyle
-  }
-
-  return <Link to={to} {...localProps} {...props} />
+  return (
+    <Link
+      to={to}
+      className={combinedClassName}
+      style={combinedStyle}
+      aria-current={active && ariaCurrent}
+      {...props}
+    />
+  )
 }
 
 NavLink.contextTypes = {

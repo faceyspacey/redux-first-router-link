@@ -110,7 +110,7 @@ it('supports custom HTML tag name', () => {
 it('supports custom HTML tag name in active mode', () => {
   const { tree, store } = createNavLink('/first', {
     to: '/first',
-    activeClassName: 'active',
+    activeClassName: 'active-foo',
     tagName: 'div'
   }) /*? $.tree */
 
