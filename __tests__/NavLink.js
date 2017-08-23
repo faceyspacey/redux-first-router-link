@@ -76,7 +76,7 @@ test('isActive returns true', () => {
     isActive: (match, location) => {
       expect(match).toMatchSnapshot()
       expect(location).toMatchSnapshot()
-      return true
+      return match
     }
   })
 
@@ -122,6 +122,15 @@ it('supports custom HTML tag name which is still a link', () => {
     to: 'somewhere',
     tagName: 'a'
   }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
+
+test('query params are ommitted', () => {
+  const { tree } = createNavLink('/first', {
+    to: '/first?foo=123',
+    activeClassName: 'active'
+  })
 
   expect(tree).toMatchSnapshot()
 })

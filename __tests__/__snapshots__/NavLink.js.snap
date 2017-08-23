@@ -123,6 +123,16 @@ exports[`isActive returns true 3`] = `
 />
 `;
 
+exports[`query params are ommitted 1`] = `
+<a
+  aria-current="true"
+  className="active"
+  href="/first?foo=123"
+  onClick={[Function]}
+  style={Object {}}
+/>
+`;
+
 exports[`reacts to state changes (onClick) 1`] = `
 <a
   aria-current={false}
