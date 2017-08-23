@@ -2,28 +2,37 @@
 
 exports[`EXACT: DONT show active class 1`] = `
 <a
+  aria-current={false}
+  className={undefined}
   href="/second"
   onClick={[Function]}
+  style={undefined}
 />
 `;
 
 exports[`NON-EXACT: show active class 1`] = `
 <a
+  aria-current="true"
   className="active"
   href="/first"
   onClick={[Function]}
+  style={Object {}}
 />
 `;
 
 exports[`STRICT: DONT show active class 1`] = `
 <a
+  aria-current={false}
+  className={undefined}
   href="/first/"
   onClick={[Function]}
+  style={undefined}
 />
 `;
 
 exports[`combine with existing styles and class 1`] = `
 <a
+  aria-current="true"
   className="foo active"
   href="/first"
   onClick={[Function]}
@@ -67,8 +76,11 @@ Object {
 
 exports[`isActive return false 3`] = `
 <a
+  aria-current={false}
+  className={undefined}
   href="/first"
   onClick={[Function]}
+  style={undefined}
 />
 `;
 
@@ -103,29 +115,38 @@ Object {
 
 exports[`isActive returns true 3`] = `
 <a
+  aria-current="true"
   className="active"
   href="/first"
   onClick={[Function]}
+  style={Object {}}
 />
 `;
 
 exports[`reacts to state changes (onClick) 1`] = `
 <a
+  aria-current={false}
+  className={undefined}
   href="/second/bar"
   onClick={[Function]}
+  style={undefined}
 />
 `;
 
 exports[`reacts to state changes (onClick) 2`] = `
 <a
+  aria-current="true"
   className="active"
   href="/second/bar"
   onClick={[Function]}
+  style={Object {}}
 />
 `;
 
 exports[`show activeStyle 1`] = `
 <a
+  aria-current="true"
+  className="active"
   href="/first"
   onClick={[Function]}
   style={
@@ -138,20 +159,28 @@ exports[`show activeStyle 1`] = `
 
 exports[`supports custom HTML tag name 1`] = `
 <div
+  aria-current={false}
+  className={undefined}
   onClick={[Function]}
+  style={undefined}
 />
 `;
 
 exports[`supports custom HTML tag name in active mode 1`] = `
 <div
-  className="active"
+  aria-current="true"
+  className="active-foo"
   onClick={[Function]}
+  style={Object {}}
 />
 `;
 
 exports[`supports custom HTML tag name which is still a link 1`] = `
 <a
+  aria-current={false}
+  className={undefined}
   href="somewhere"
   onClick={[Function]}
+  style={undefined}
 />
 `;
