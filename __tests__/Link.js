@@ -1,3 +1,4 @@
+import React from 'react'
 import { NOT_FOUND } from 'redux-first-router'
 import createLink, { event } from '../__test-helpers__/createLink'
 
@@ -193,6 +194,17 @@ it('supports custom HTML tag name which is still a link', () => {
   const { tree, store } = createLink({
     to: 'somewhere',
     tagName: 'a'
+  }) /*? $.tree */
+
+  expect(tree).toMatchSnapshot()
+})
+
+it('supports custom component', () => {
+  const CustomComponent = props => <span {...props} />
+
+  const { tree, store } = createLink({
+    to: 'somewhere',
+    component: CustomComponent
   }) /*? $.tree */
 
   expect(tree).toMatchSnapshot()

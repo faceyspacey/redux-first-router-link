@@ -104,3 +104,10 @@ exports[`supports custom HTML tag name which is still a link 1`] = `
   onClick={[Function]}
 />
 `;
+
+exports[`supports custom component 1`] = `
+<span
+  href="somewhere"
+  onClick={[Function]}
+/>
+`;
