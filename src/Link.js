@@ -20,8 +20,7 @@ type OwnProps = {
   href?: To,
   redirect?: boolean,
   replace?: boolean,
-  tagName?: string,
-  component?: ComponentType,
+  component?: ComponentType | string,
   children?: any, // eslint-disable-line flowtype/no-weak-types
   onPress?: OnClick,
   onClick?: OnClick,
@@ -44,8 +43,7 @@ export const Link = (
     href,
     redirect,
     replace,
-    tagName = 'a',
-    component,
+    component = 'a',
     children,
     onPress,
     onClick,
@@ -73,11 +71,11 @@ export const Link = (
     to,
     replace || redirect
   )
-  const Root = component || tagName
+  const Root = component
 
   const localProps = {}
 
-  if ((tagName === 'a' || component) && url) {
+  if ((component === 'a' || typeof component !== 'string') && url) {
     localProps.href = url
   }
 

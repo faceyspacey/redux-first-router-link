@@ -181,25 +181,25 @@ it('converts invalid href to "#" for path', () => {
   expect(location.type).toEqual(NOT_FOUND)
 })
 
-it('supports custom HTML tag name', () => {
+it('supports custom component as string', () => {
   const { tree, store } = createLink({
     to: 'somewhere',
-    tagName: 'div'
+    component: 'div'
   }) /*? $.tree */
 
   expect(tree).toMatchSnapshot()
 })
 
-it('supports custom HTML tag name which is still a link', () => {
+it('supports custom component which is still a link', () => {
   const { tree, store } = createLink({
     to: 'somewhere',
-    tagName: 'a'
+    component: 'a'
   }) /*? $.tree */
 
   expect(tree).toMatchSnapshot()
 })
 
-it('supports custom component', () => {
+it('supports custom component as ComponentType', () => {
   const CustomComponent = props => <span {...props} />
 
   const { tree, store } = createLink({
