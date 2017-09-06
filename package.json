@@ -68,7 +68,7 @@
     "rimraf": "^2.6.1",
     "semantic-release": "^7.0.1",
     "travis-github-status": "^1.6.3",
-    "webpack": "3.5.5"
+    "webpack": "3.5.6"
   },
   "peerDependencies": {
     "react": "*",
