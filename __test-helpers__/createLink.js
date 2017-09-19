@@ -2,7 +2,6 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import createHistory from 'history/createMemoryHistory'
 import { connectRoutes } from 'redux-first-router'
 
 import Link from '../src/Link'
@@ -17,17 +16,12 @@ const createLink = (props, initialPath, options) => {
     SECOND: '/second/:param'
   }
 
-  const history = createHistory({
+  const { middleware, enhancer, reducer } = connectRoutes(routesMap, {
     initialEntries: [initialPath || '/'],
     initialIndex: 0,
-    keyLength: 6
+    keyLength: 6,
+    ...options
   })
-
-  const { middleware, enhancer, reducer } = connectRoutes(
-    history,
-    routesMap,
-    options
-  )
 
   const middlewares = applyMiddleware(middleware)
   const enhancers = compose(enhancer, middlewares)

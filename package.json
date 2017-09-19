@@ -55,7 +55,6 @@
     "eslint-plugin-react": "^7.2.1",
     "flow-bin": "^0.52.0",
     "flow-copy-source": "^1.2.0",
-    "history": "^4.6.3",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
@@ -74,7 +73,8 @@
     "react": "*",
     "react-redux": "*",
     "redux": "*",
-    "redux-first-router": "*"
+    "redux-first-router": "https://github.com/faceyspacey/redux-first-router.git#rudy",
+    "rudy-history": "*"
   },
   "config": {
     "commitizen": {

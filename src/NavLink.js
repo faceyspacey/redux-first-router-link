@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
-import { selectLocationState } from 'redux-first-router'
+import { selectLocationState, getOptions } from 'redux-first-router'
+import { stripBasename } from 'rudy-history'
 
 import { Link } from './Link'
 import toUrl from './toUrl'
@@ -62,9 +63,18 @@ const NavLink = (
 ) => {
   to = href || to
 
+  const options = getOptions()
+  const basename = options ? options.basename || '' : ''
+
   const location = selectLocationState(store.getState())
   const path = toUrl(to, location.routesMap).split('?')[0]
-  const match = matchPath(pathname, { path, exact, strict })
+
+  const match = matchPath(pathname, {
+    path: stripBasename(path, basename),
+    exact,
+    strict
+  })
+
   const active = !!(isActive ? isActive(match, location) : match)
 
   const combinedClassName = active
