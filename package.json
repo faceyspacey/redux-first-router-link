@@ -1,6 +1,6 @@
 {
   "name": "redux-first-router-link",
-  "version": "0.0.1-rudy",
+  "version": "0.0.2-rudy",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/index.js",
   "scripts": {
@@ -55,7 +55,6 @@
     "eslint-plugin-react": "^7.2.1",
     "flow-bin": "^0.52.0",
     "flow-copy-source": "^1.2.0",
-    "history": "^4.6.3",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
@@ -64,7 +63,7 @@
     "react-redux": "^5.x",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.x",
-    "redux-first-router": "next",
+    "redux-first-router": "rudy",
     "rimraf": "^2.6.1",
     "semantic-release": "^7.0.1",
     "travis-github-status": "^1.6.3",
@@ -74,7 +73,7 @@
     "react": "*",
     "react-redux": "*",
     "redux": "*",
-    "redux-first-router": "*"
+    "redux-first-router": "rudy"
   },
   "config": {
     "commitizen": {
@@ -91,6 +90,7 @@
   "dependencies": {
     "path-to-regexp": "^1.7.0",
     "prop-types": "15.5.10",
+    "rudy-history": "^1.0.0",
     "rudy-match-path": "^0.3.0"
   }
 }
