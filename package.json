@@ -1,6 +1,6 @@
 {
   "name": "redux-first-router-link",
-  "version": "0.0.1-rudy",
+  "version": "0.0.2-rudy",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/index.js",
   "scripts": {
@@ -63,7 +63,7 @@
     "react-redux": "^5.x",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.x",
-    "redux-first-router": "next",
+    "redux-first-router": "rudy",
     "rimraf": "^2.6.1",
     "semantic-release": "^7.0.1",
     "travis-github-status": "^1.6.3",
@@ -73,8 +73,7 @@
     "react": "*",
     "react-redux": "*",
     "redux": "*",
-    "redux-first-router": "https://github.com/faceyspacey/redux-first-router.git#rudy",
-    "rudy-history": "*"
+    "redux-first-router": "rudy"
   },
   "config": {
     "commitizen": {
@@ -91,6 +90,7 @@
   "dependencies": {
     "path-to-regexp": "^1.7.0",
     "prop-types": "15.5.10",
+    "rudy-history": "^1.0.0",
     "rudy-match-path": "^0.3.0"
   }
 }

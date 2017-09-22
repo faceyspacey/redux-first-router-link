@@ -7,7 +7,7 @@ import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
 import { selectLocationState, getOptions } from 'redux-first-router'
-import { stripBasename } from 'rudy-history'
+import { stripBasename } from 'rudy-history/PathUtils'
 
 import { Link } from './Link'
 import toUrl from './toUrl'
@@ -64,7 +64,7 @@ const NavLink = (
   to = href || to
 
   const options = getOptions()
-  const basename = options ? options.basename || '' : ''
+  const basename = options.basename ? options.basename : ''
 
   const location = selectLocationState(store.getState())
   const path = toUrl(to, location.routesMap).split('?')[0]
