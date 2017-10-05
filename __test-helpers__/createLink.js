@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { connectRoutes } from 'redux-first-router'
+import thunk from 'redux-thunk'
 
 import Link from '../src/Link'
 import NavLink from '../src/NavLink'
@@ -23,7 +24,7 @@ const createLink = (props, initialPath, options) => {
     ...options
   })
 
-  const middlewares = applyMiddleware(middleware)
+  const middlewares = applyMiddleware(middleware, thunk)
   const enhancers = compose(enhancer, middlewares)
   const rootReducer = (state = {}, action = {}) => ({
     location: reducer(state.location, action)

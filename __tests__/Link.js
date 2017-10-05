@@ -1,4 +1,4 @@
-import { NOT_FOUND } from 'redux-first-router'
+import { NOT_FOUND, addRoutes } from 'redux-first-router'
 import createLink, { event } from '../__test-helpers__/createLink'
 
 test('ON_CLICK: dispatches location-aware action', () => {
@@ -210,4 +210,11 @@ test('with basename options generates url with basename', () => {
   )
 
   expect(tree.props.href).toEqual('/base-foo/first')
+})
+
+test('rerenders href when route url is updated', () => {
+  const { component, store } = createLink({ to: { type: 'FIRST' } })
+  expect(component.toJSON().props.href).toEqual('/first')
+  store.dispatch(addRoutes({ FIRST: '/updatedfirst' }))
+  expect(component.toJSON().props.href).toEqual('/updatedfirst')
 })

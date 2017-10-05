@@ -64,6 +64,7 @@
     "react-test-renderer": "^15.6.1",
     "redux": "^3.x",
     "redux-first-router": "rudy",
+    "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.1",
     "semantic-release": "^7.0.1",
     "travis-github-status": "^1.6.3",
