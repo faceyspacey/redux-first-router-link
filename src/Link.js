@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import type { Connector } from 'react-redux'
 import { selectLocationState } from 'redux-first-router'
-import type { LocationState } from 'redux-first-router'
+import type { RoutesMap } from 'redux-first-router'
 
 import toUrl from './toUrl'
 import handlePress from './handlePress'
@@ -29,7 +29,7 @@ type OwnProps = {
 
 type Props = {
   dispatch: Function, // eslint-disable-line flowtype/no-weak-types
-  location: LocationState
+  routesMap: RoutesMap
 } & OwnProps
 
 export const UnconnectedLink = ({
@@ -45,12 +45,11 @@ export const UnconnectedLink = ({
   shouldDispatch = true,
   target,
   dispatch,
-  location,
+  routesMap,
   ...props
 }: Props) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
     null,
@@ -91,8 +90,8 @@ export const UnconnectedLink = ({
   )
 }
 
-const mapState = state => ({ location: selectLocationState(state) })
-const connector: Connector<OwnProps, Props> = connect(mapState)
+const mapState = state => ({ routesMap: selectLocationState(state).routesMap })
+export const connector: Connector<OwnProps, Props> = connect(mapState)
 
 // $FlowIgnore
 export default connector(UnconnectedLink)

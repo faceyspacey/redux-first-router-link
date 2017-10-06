@@ -81,7 +81,7 @@ const NavLink = ({
       className={combinedClassName}
       style={combinedStyle}
       aria-current={active && ariaCurrent}
-      location={location}
+      routesMap={location.routesMap}
       {...props}
     />
   )

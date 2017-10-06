@@ -1,5 +1,7 @@
 import { NOT_FOUND, addRoutes } from 'redux-first-router'
+import { connector } from '../src/Link'
 import createLink, { event } from '../__test-helpers__/createLink'
+import createRenderCounter from '../__test-helpers__/createRenderCounter'
 
 test('ON_CLICK: dispatches location-aware action', () => {
   const { tree, store } = createLink({
@@ -217,4 +219,39 @@ test('rerenders href when route url is updated', () => {
   expect(component.toJSON().props.href).toEqual('/first')
   store.dispatch(addRoutes({ FIRST: '/updatedfirst' }))
   expect(component.toJSON().props.href).toEqual('/updatedfirst')
+})
+
+describe('redux connector', () => {
+  const makeCountWrapper = () => ({ count: 0 })
+
+  it('triggers render once when component is created', () => {
+    const countWrapper = makeCountWrapper()
+    createRenderCounter(connector, countWrapper)
+    expect(countWrapper.count).toBe(1)
+  })
+
+  it('does NOT trigger rerender when unrelated part of state changes', () => {
+    const countWrapper = makeCountWrapper()
+    const { store } = createRenderCounter(connector, countWrapper)
+    expect(store.getState().unrelated).toBe(0)
+
+    store.dispatch({ type: 'INC_UNRELATED' })
+
+    expect(countWrapper.count).toBe(1)
+    expect(store.getState().unrelated).toBe(1)
+  })
+
+  it('does NOT trigger rerender when location changes but routesMap does not', () => {
+    const countWrapper = makeCountWrapper()
+    const { store } = createRenderCounter(connector, countWrapper)
+    store.dispatch({ type: 'FIRST' })
+    expect(countWrapper.count).toBe(1)
+  })
+
+  it('triggers rerender when routesMap changes', () => {
+    const countWrapper = makeCountWrapper()
+    const { store } = createRenderCounter(connector, countWrapper)
+    store.dispatch(addRoutes({ SOMETHING: '/somewhere' }))
+    expect(countWrapper.count).toBe(2)
+  })
 })
