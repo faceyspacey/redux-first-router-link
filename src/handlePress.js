@@ -44,7 +44,7 @@ export default (
   }
 }
 
-const isAction = (to: ?To) => typeof to === 'object' && !Array.isArray(to)
+const isAction = (to: ?To) => (typeof to === 'object' && !Array.isArray(to)) || typeof to === 'function'
 
 const isModified = (e: Object) =>
   !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey)
