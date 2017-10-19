@@ -60,7 +60,8 @@ import Link from 'redux-first-router-link'
 // as an array of path segments:
 <Link to={['list', 'react-redux']}>REACT & REDUX</Link>
 
-// as an action object (RECOMMENDED APPROACH SO YOU CAN CHANGE ALL URLs FROM YOUR ROUTESMAP):
+// as any action (RECOMMENDED APPROACH SO YOU CAN CHANGE ALL URLs FROM YOUR ROUTESMAP):
+// this could also be a thunk or generator depending on the middleware you have added.
 <Link to={{ type: 'LIST', payload: { category: 'fp' } }}>FP</Link>
 ```
 
@@ -90,7 +91,7 @@ import { NavLink } from 'redux-first-router-link'
 
 ## Recommendation
 
-Creating your links using an `action` object is obviously the best solution, as it will allow you to change
+Creating your links using an `action` is obviously the best solution, as it will allow you to change
 static path segments in the `routesMap` you pass to `connectRoutes()` at any time, without
 having to change any of your `<Link />` components. That means you only have to change URLs in one place. AKA, your `routesMap` is your *"single source of truth."*
 
