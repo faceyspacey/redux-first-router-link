@@ -34,9 +34,5 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
     }
   }
 
-  console.warn(
-    '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
-    to
-  )
   return '#'
 }
