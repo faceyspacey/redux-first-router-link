@@ -12,6 +12,7 @@ const createLink = (props, initialPath, options) => {
   const link = isNavLink ? <NavLink {...props} /> : <Link {...props} />
 
   const routesMap = {
+    HOME: '/',
     FIRST: '/first',
     SECOND: '/second/:param'
   }
@@ -30,11 +31,7 @@ const createLink = (props, initialPath, options) => {
   })
 
   const store = createStore(rootReducer, enhancers)
-  const component = renderer.create(
-    <Provider store={store}>
-      {link}
-    </Provider>
-  )
+  const component = renderer.create(<Provider store={store}>{link}</Provider>)
 
   return {
     component,

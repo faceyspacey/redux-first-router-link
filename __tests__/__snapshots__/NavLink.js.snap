@@ -68,6 +68,7 @@ Object {
   },
   "routesMap": Object {
     "FIRST": "/first",
+    "HOME": "/",
     "SECOND": "/second/:param",
   },
   "type": "FIRST",
@@ -107,6 +108,7 @@ Object {
   },
   "routesMap": Object {
     "FIRST": "/first",
+    "HOME": "/",
     "SECOND": "/second/:param",
   },
   "type": "FIRST",
