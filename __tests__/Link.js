@@ -155,6 +155,19 @@ it('converts href as action object to path', () => {
   expect(location.type).toEqual('SECOND')
 })
 
+it('converts NOT_FOUND to /not_found', () => {
+  const action = { type: NOT_FOUND }
+  const { tree, store } = createLink({ to: action }) /*? $.tree */
+
+  expect(tree.props.href).toEqual('/not-found')
+  expect(tree).toMatchSnapshot()
+
+  tree.props.onClick(event)
+
+  const { location } = store.getState() /*? $.location */
+  expect(location.type).toEqual(NOT_FOUND)
+})
+
 it('converts href as non-matched action object to "#" for path', () => {
   const action = { type: 'MISSED' }
   const { tree, store } = createLink({ to: action }) /*? $.tree */
@@ -165,7 +178,7 @@ it('converts href as non-matched action object to "#" for path', () => {
   tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
-  expect(location.type).toEqual(NOT_FOUND)
+  expect(location.type).toEqual('HOME')
 })
 
 it('converts invalid href to "#" for path', () => {
@@ -177,7 +190,7 @@ it('converts invalid href to "#" for path', () => {
   tree.props.onClick(event)
 
   const { location } = store.getState() /*? $.location */
-  expect(location.type).toEqual(NOT_FOUND)
+  expect(location.type).toEqual('HOME')
 })
 
 it('supports custom HTML tag name', () => {

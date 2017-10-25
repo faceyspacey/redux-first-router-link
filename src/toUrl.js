@@ -1,6 +1,6 @@
 // @flow
 
-import { actionToPath, getOptions } from 'redux-first-router'
+import { actionToPath, getOptions, NOT_FOUND } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 
 export type To = string | Array<string> | Object
@@ -23,6 +23,10 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
       return basename ? basename + path : path
     }
     catch (e) {
+      if (action.type === NOT_FOUND) {
+        return '/not-found'
+      }
+
       console.warn(
         '[redux-first-router-link] could not create path from action:',
         action,

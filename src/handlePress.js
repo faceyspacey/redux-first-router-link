@@ -21,6 +21,7 @@ export default (
   dispatchRedirect?: boolean,
   e: SyntheticEvent
 ) => {
+  shouldDispatch = shouldDispatch && url !== '#'
   let shouldGo = true
 
   if (onClick) {
@@ -45,9 +46,6 @@ export default (
     const { querySerializer: serializer } = getOptions()
     let action = isAction(to) ? to : pathToAction(url, routesMap, serializer)
     action = dispatchRedirect ? redirect(action) : action
-    if (action.type === NOT_FOUND) {
-      return
-    }
     dispatch(action)
   }
 }

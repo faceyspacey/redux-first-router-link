@@ -64,6 +64,13 @@ exports[`ON_TOUCH_START: dispatches action onTouchStart if down === true 1`] = `
 />
 `;
 
+exports[`converts NOT_FOUND to /not_found 1`] = `
+<a
+  href="/not-found"
+  onClick={[Function]}
+/>
+`;
+
 exports[`converts href as action object to path 1`] = `
 <a
   href="/second/bar"
