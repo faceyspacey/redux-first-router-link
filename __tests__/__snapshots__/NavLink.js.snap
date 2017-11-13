@@ -167,7 +167,17 @@ exports[`show activeStyle 1`] = `
 />
 `;
 
-exports[`supports custom HTML tag name 1`] = `
+exports[`supports custom component as ComponentType 1`] = `
+<span
+  aria-current="true"
+  className="active"
+  href="/first"
+  onClick={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`supports custom component as string 1`] = `
 <div
   aria-current={false}
   className={undefined}
@@ -176,7 +186,7 @@ exports[`supports custom HTML tag name 1`] = `
 />
 `;
 
-exports[`supports custom HTML tag name in active mode 1`] = `
+exports[`supports custom component as string in active mode 1`] = `
 <div
   aria-current="true"
   className="active-foo"
@@ -185,7 +195,7 @@ exports[`supports custom HTML tag name in active mode 1`] = `
 />
 `;
 
-exports[`supports custom HTML tag name which is still a link 1`] = `
+exports[`supports custom component which is still a link 1`] = `
 <a
   aria-current={false}
   className={undefined}

@@ -92,13 +92,20 @@ exports[`converts invalid href to "#" for path 1`] = `
 />
 `;
 
-exports[`supports custom HTML tag name 1`] = `
+exports[`supports custom component as ComponentType 1`] = `
+<span
+  href="somewhere"
+  onClick={[Function]}
+/>
+`;
+
+exports[`supports custom component as string 1`] = `
 <div
   onClick={[Function]}
 />
 `;
 
-exports[`supports custom HTML tag name which is still a link 1`] = `
+exports[`supports custom component which is still a link 1`] = `
 <a
   href="somewhere"
   onClick={[Function]}

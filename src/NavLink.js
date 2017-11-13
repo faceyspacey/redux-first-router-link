@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import type { ComponentType } from 'react'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
@@ -18,6 +19,7 @@ type OwnProps = {
   href?: To,
   redirect?: boolean,
   replace?: boolean,
+  component?: ComponentType | string,
   children?: any,
   onPress?: OnClick,
   onClick?: OnClick,

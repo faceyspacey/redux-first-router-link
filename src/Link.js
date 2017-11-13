@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import type { ComponentType } from 'react'
 import { connect } from 'react-redux'
 import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
@@ -19,7 +20,7 @@ type OwnProps = {
   href?: To,
   redirect?: boolean,
   replace?: boolean,
-  tagName?: string,
+  component?: ComponentType | string,
   children?: any, // eslint-disable-line flowtype/no-weak-types
   onPress?: OnClick,
   onClick?: OnClick,
@@ -42,7 +43,7 @@ export const Link = (
     href,
     redirect,
     replace,
-    tagName = 'a',
+    component = 'a',
     children,
     onPress,
     onClick,
@@ -70,11 +71,11 @@ export const Link = (
     to,
     replace || redirect
   )
-  const Root = tagName
+  const Root = component
 
   const localProps = {}
 
-  if (tagName === 'a' && url) {
+  if ((component === 'a' || typeof component !== 'string') && url) {
     localProps.href = url
   }
 
