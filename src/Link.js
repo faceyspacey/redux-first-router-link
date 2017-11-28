@@ -1,11 +1,10 @@
 // @flow
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import { selectLocationState } from 'redux-first-router'
+import type { RoutesMap } from 'redux-first-router'
 
 import toUrl from './toUrl'
 import handlePress from './handlePress'
@@ -29,35 +28,28 @@ type OwnProps = {
 }
 
 type Props = {
-  dispatch: Function // eslint-disable-line flowtype/no-weak-types
+  dispatch: Function, // eslint-disable-line flowtype/no-weak-types
+  routesMap: RoutesMap
 } & OwnProps
 
-type Context = {
-  store: Store<*, *>
-}
-
-export const Link = (
-  {
-    to,
-    href,
-    redirect,
-    replace,
-    tagName = 'a',
-    children,
-    onPress,
-    onClick,
-    down = false,
-    shouldDispatch = true,
-    target,
-    dispatch,
-    ...props
-  }: Props,
-  { store }: Context
-) => {
+export const UnconnectedLink = ({
+  to,
+  href,
+  redirect,
+  replace,
+  tagName = 'a',
+  children,
+  onPress,
+  onClick,
+  down = false,
+  shouldDispatch = true,
+  target,
+  dispatch,
+  routesMap,
+  ...props
+}: Props) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const location = selectLocationState(store.getState())
-  const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
     null,
@@ -98,11 +90,8 @@ export const Link = (
   )
 }
 
-Link.contextTypes = {
-  store: PropTypes.object.isRequired
-}
-
-const connector: Connector<OwnProps, Props> = connect()
+const mapState = state => ({ routesMap: selectLocationState(state).routesMap })
+export const connector: Connector<OwnProps, Props> = connect(mapState)
 
 // $FlowIgnore
-export default connector(Link)
+export default connector(UnconnectedLink)
