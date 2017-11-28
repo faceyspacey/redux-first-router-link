@@ -23,20 +23,25 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
       return basename ? basename + path : path
     }
     catch (e) {
-      console.warn(
-        '[redux-first-router-link] could not create path from action:',
-        action,
-        'For reference, here are your current routes:',
-        routesMap
-      )
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(
+          '[redux-first-router-link] could not create path from action:',
+          action,
+          'For reference, here are your current routes:',
+          routesMap
+        )
+      }
 
       return '#'
     }
   }
 
-  console.warn(
-    '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
-    to
-  )
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(
+      '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
+      to
+    )
+  }
+
   return '#'
 }
