@@ -8,8 +8,9 @@ export type To = string | Array<string> | Object
 export default (to?: ?To, routesMap: RoutesMap): string => {
   if (to && typeof to === 'string') {
     return to
-  }
-  else if (Array.isArray(to)) {
+  } else if (to === null) {
+    return to;
+  } else if (Array.isArray(to)) {
     return `/${to.join('/')}`
   }
   else if (typeof to === 'object') {
@@ -35,7 +36,7 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
 
   if (process.env.NODE_ENV === 'development') {
     console.warn(
-      '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
+      '[redux-first-router-link] `to` prop must be a string, array, null, or action object. You provided:',
       to
     )
   }
