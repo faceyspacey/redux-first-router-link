@@ -56,13 +56,14 @@ const NavLink = (
     exact,
     strict,
     isActive,
+    storeKey = 'store',
     ...props
   }: Props,
-  { store }: Context
+  context: Context
 ) => {
   to = href || to
 
-  const location = selectLocationState(store.getState())
+  const location = selectLocationState(context[storeKey].getState())
   const path = toUrl(to, location.routesMap).split('?')[0]
   const match = matchPath(pathname, { path, exact, strict })
   const active = !!(isActive ? isActive(match, location) : match)

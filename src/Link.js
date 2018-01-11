@@ -50,13 +50,14 @@ export const Link = (
     shouldDispatch = true,
     target,
     dispatch,
+    storeKey = 'store',
     ...props
   }: Props,
-  { store }: Context
+  context: Context
 ) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const location = selectLocationState(store.getState())
+  const location = selectLocationState(context[storeKey].getState())
   const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
