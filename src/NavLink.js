@@ -31,7 +31,8 @@ type OwnProps = {
   ariaCurrent?: string,
   exact?: boolean,
   strict?: boolean,
-  isActive?: (?Object, Object) => boolean
+  isActive?: (?Object, Object) => boolean,
+  storeKey?: string
 }
 
 type Props = {

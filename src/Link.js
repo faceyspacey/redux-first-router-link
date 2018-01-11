@@ -25,7 +25,8 @@ type OwnProps = {
   onClick?: OnClick,
   down?: boolean,
   shouldDispatch?: boolean,
-  target?: string
+  target?: string,
+  storeKey?: string
 }
 
 type Props = {
