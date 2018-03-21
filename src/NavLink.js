@@ -76,6 +76,8 @@ const NavLink = (
 
   const combinedStyle = active ? { ...style, ...activeStyle } : style
 
+  const computedChildren = functionAsChild ? children(active) : children
+
   return (
     <Link
       to={to}
@@ -84,7 +86,7 @@ const NavLink = (
       aria-current={active && ariaCurrent}
       {...props}
     >
-      {functionAsChild ? children(active) : children}
+      {computedChildren}
     </Link>
   )
 }
