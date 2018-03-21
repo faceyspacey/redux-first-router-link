@@ -31,7 +31,8 @@ type OwnProps = {
   ariaCurrent?: string,
   exact?: boolean,
   strict?: boolean,
-  isActive?: (?Object, Object) => boolean
+  isActive?: (?Object, Object) => boolean,
+  functionAsChild?: boolean
 }
 
 type Props = {
@@ -56,6 +57,8 @@ const NavLink = (
     exact,
     strict,
     isActive,
+    children,
+    functionAsChild,
     ...props
   }: Props,
   { store }: Context
@@ -80,7 +83,9 @@ const NavLink = (
       style={combinedStyle}
       aria-current={active && ariaCurrent}
       {...props}
-    />
+    >
+      {functionAsChild ? children(active) : children}
+    </Link>
   )
 }
 

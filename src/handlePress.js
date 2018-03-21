@@ -4,7 +4,7 @@ import { pathToAction, redirect, getOptions } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 import type { To } from './toUrl'
 
-export type OnClick = false | ((SyntheticEvent) => ?boolean)
+export type OnClick = false | (SyntheticEvent => ?boolean)
 export default (
   url: string,
   routesMap: RoutesMap,

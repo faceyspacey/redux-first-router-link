@@ -32,7 +32,11 @@ const createLink = (props, initialPath) => {
   })
 
   const store = createStore(rootReducer, enhancers)
-  const component = renderer.create(<Provider store={store}>{link}</Provider>)
+  const component = renderer.create(
+    <Provider store={store}>
+      {link}
+    </Provider>
+  )
 
   return {
     component,
