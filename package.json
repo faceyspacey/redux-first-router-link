@@ -1,5 +1,5 @@
 {
-  "name": "redux-first-router-link",
+  "name": "sibnerian-fork-redux-first-router-link",
   "version": "0.0.0-development",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
     "clean": "rimraf dist && mkdir dist",
     "lint": "eslint --fix ./",
     "format": "prettier --single-quote --parser=flow --semi=false --write '{src,__tests__,__test-helpers__}/**/*.js' && npm run lint",
-    "precommit": "lint-staged --verbose && npm test",
+    "precommit": "lint-staged -- --verbose && npm test",
     "cm": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min"

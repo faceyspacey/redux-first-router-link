@@ -4,5 +4,8 @@
   "flow.pathToFlow": "flow",
   "flow.stopFlowOnExit": true,
   "flow.enabled": true,
-  "flow.useNPMPackagedFlow": true
+  "flow.useNPMPackagedFlow": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  }
 }
