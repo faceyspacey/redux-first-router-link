@@ -44,6 +44,10 @@ type Context = {
   store: Store<*, *>
 }
 
+function childrenIsRenderPropsFunction(children) {
+  return React.Children.count(children) === 0 && typeof children === 'function'
+}
+
 const NavLink = (
   {
     to,
@@ -57,6 +61,7 @@ const NavLink = (
     exact,
     strict,
     isActive,
+    children,
     ...props
   }: Props,
   { store }: Context
@@ -82,7 +87,6 @@ const NavLink = (
     : className
 
   const combinedStyle = active ? { ...style, ...activeStyle } : style
-
   return (
     <Link
       to={to}
@@ -90,7 +94,9 @@ const NavLink = (
       style={combinedStyle}
       aria-current={active && ariaCurrent}
       {...props}
-    />
+    >
+      {childrenIsRenderPropsFunction(children) ? children(active) : children}
+    </Link>
   )
 }
 

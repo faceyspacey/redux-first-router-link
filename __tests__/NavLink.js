@@ -134,3 +134,13 @@ test('query params are ommitted', () => {
 
   expect(tree).toMatchSnapshot()
 })
+
+test('function as Child is executed with active boolean', () => {
+  const children = jest.fn(() => '')
+  const { tree } = createNavLink('/first', {
+    to: '/first',
+    children
+  })
+
+  expect(children).toBeCalledWith(true)
+})
