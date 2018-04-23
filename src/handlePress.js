@@ -25,7 +25,7 @@ export default (
 
   const prevented = e.defaultPrevented
 
-  if (!target && e && e.preventDefault && !isModified(e)) {
+  if (e.button !== 1 && !target && e && e.preventDefault && !isModified(e)) {
     e.preventDefault()
   }
 
