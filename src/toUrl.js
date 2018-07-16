@@ -1,6 +1,6 @@
 // @flow
 
-import { actionToPath, getOptions } from 'redux-first-router'
+import { actionToPath, getOptions, history } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 
 export type To = string | Array<string> | Object
@@ -20,7 +20,9 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
 
     try {
       const path = actionToPath(action, routesMap, querySerializer)
-      return basename ? basename + path : path
+      return history().createHref({
+        pathname: basename ? basename + path : path
+      })
     }
     catch (e) {
       if (process.env.NODE_ENV === 'development') {
