@@ -197,3 +197,17 @@ it('supports custom HTML tag name which is still a link', () => {
 
   expect(tree).toMatchSnapshot()
 })
+
+test('with basename options generates url with basename', () => {
+  const options = { basename: '/base-foo' }
+  const { tree, store } = createLink(
+    {
+      to: '/first',
+      children: 'CLICK ME'
+    },
+    '/',
+    options
+  )
+
+  expect(tree.props.href).toEqual('/base-foo/first')
+})

@@ -6,18 +6,21 @@ import type { RoutesMap } from 'redux-first-router'
 export type To = string | Array<string> | Object
 
 export default (to?: ?To, routesMap: RoutesMap): string => {
+  const { querySerializer, basename } = getOptions()
+
   if (to && typeof to === 'string') {
-    return to
+    return basename ? basename + to : to
   }
   else if (Array.isArray(to)) {
-    return `/${to.join('/')}`
+    const path = `/${to.join('/')}`
+    return basename ? basename + path : path
   }
   else if (typeof to === 'object') {
     const action = to
 
     try {
-      const { querySerializer } = getOptions()
-      return actionToPath(action, routesMap, querySerializer)
+      const path = actionToPath(action, routesMap, querySerializer)
+      return basename ? basename + path : path
     }
     catch (e) {
       if (process.env.NODE_ENV === 'development') {

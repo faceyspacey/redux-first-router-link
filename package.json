@@ -58,7 +58,6 @@
     "eslint-plugin-react": "^7.2.1",
     "flow-bin": "^0.52.0",
     "flow-copy-source": "^1.2.0",
-    "history": "^4.6.3",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
@@ -67,7 +66,7 @@
     "react-redux": "^5.x",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.x",
-    "redux-first-router": "next",
+    "redux-first-router": "^2.1.1",
     "rimraf": "^2.6.1",
     "semantic-release": "^15.12.4",
     "travis-github-status": "^1.6.3",
@@ -77,7 +76,7 @@
     "react": "*",
     "react-redux": "*",
     "redux": "*",
-    "redux-first-router": "*"
+    "redux-first-router": "^2.1.1"
   },
   "config": {
     "commitizen": {
@@ -93,7 +92,8 @@
   },
   "dependencies": {
     "path-to-regexp": "^1.7.0",
-    "prop-types": "^15.5.10",
+    "prop-types": "15.5.10",
+    "rudy-history": "^1.0.0",
     "rudy-match-path": "^0.3.0"
   }
 }
