@@ -17,7 +17,7 @@
     "precommit": "lint-staged --verbose && npm test",
     "cm": "git-cz",
     "semantic-release": "npx semantic-release",
-    "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min"
+    "prepublishOnly": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min"
   },
   "repository": {
     "type": "git",
