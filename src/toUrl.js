@@ -42,6 +42,5 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
       to
     )
   }
-
   return '#'
 }
