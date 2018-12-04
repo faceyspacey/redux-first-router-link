@@ -4,6 +4,19 @@ node_js:
 cache: yarn
 script:
   - node_modules/.bin/travis-github-status lint flow jest snyk codeclimate
+jobs:
+  include:
+    - stage: Build
+      name: Travis Status
+      script: npx travis-github-status
+      name: Linting
+      script: npm run lint
+      name: Flow
+      script: npm run flow
+      name: Jest
+      script: npm run jest
+      name: Snyk
+      script: snyk
 notifications:
   email: false
   webhooks:
