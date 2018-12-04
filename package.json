@@ -16,7 +16,7 @@
     "format": "prettier --single-quote --parser=flow --semi=false --write '{src,__tests__,__test-helpers__}/**/*.js' && npm run lint",
     "precommit": "lint-staged --verbose && npm test",
     "cm": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "npx semantic-release",
     "prepublish": "npm run clean && npm run build && npm run flow-copy && npm run build:umd && npm run build:umd:min"
   },
   "repository": {
@@ -24,6 +24,9 @@
     "url": "https://github.com/faceyspacey/redux-first-router-link.git"
   },
   "author": "James Gillmore <james@faceyspacey.com>",
+  "maintainers": [
+    "Zackary Jackson <zack@ScriptedAlchemy.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/faceyspacey/redux-first-router-link/issues"
@@ -66,7 +69,7 @@
     "redux": "^3.x",
     "redux-first-router": "next",
     "rimraf": "^2.6.1",
-    "semantic-release": "^7.0.1",
+    "semantic-release": "^15.12.4",
     "travis-github-status": "^1.6.3",
     "webpack": "3.5.5"
   },
