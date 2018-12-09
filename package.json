@@ -92,7 +92,7 @@
   },
   "dependencies": {
     "path-to-regexp": "^1.7.0",
-    "prop-types": "15.5.10",
+    "prop-types": "^15.5.10",
     "rudy-history": "^1.0.0",
     "rudy-match-path": "^0.3.0"
   }
