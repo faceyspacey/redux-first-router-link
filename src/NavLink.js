@@ -9,7 +9,7 @@ import matchPath from 'rudy-match-path'
 import { selectLocationState, getOptions } from 'redux-first-router'
 import { stripBasename } from 'rudy-history/PathUtils'
 
-import { Link } from './Link'
+import Link from './Link'
 import toUrl from './toUrl'
 import type { To } from './toUrl'
 import type { OnClick } from './handlePress'
@@ -37,36 +37,34 @@ type OwnProps = {
 
 type Props = {
   dispatch: Function,
-  pathname: string
+  pathname: string,
+  location: any
 } & OwnProps
 
 type Context = {
   store: Store<*, *>
 }
 
-const NavLink = (
-  {
-    to,
-    href,
-    pathname,
-    className,
-    style,
-    activeClassName = 'active',
-    activeStyle,
-    ariaCurrent = 'true',
-    exact,
-    strict,
-    isActive,
-    ...props
-  }: Props,
-  { store }: Context
-) => {
+const NavLink = ({
+  to,
+  href,
+  pathname,
+  className,
+  style,
+  activeClassName = 'active',
+  activeStyle,
+  ariaCurrent = 'true',
+  exact,
+  strict,
+  isActive,
+  location,
+  ...props
+}: Props) => {
   to = href || to
 
   const options = getOptions()
   const basename = options.basename ? options.basename : ''
 
-  const location = selectLocationState(store.getState())
   const path = toUrl(to, location.routesMap).split('?')[0]
 
   const match = matchPath(pathname, {
@@ -94,11 +92,10 @@ const NavLink = (
   )
 }
 
-NavLink.contextTypes = {
-  store: PropTypes.object.isRequired
-}
-
-const mapState = state => ({ pathname: selectLocationState(state).pathname })
+const mapState = state => ({
+  pathname: selectLocationState(state).pathname,
+  location: selectLocationState(state)
+})
 const connector: Connector<OwnProps, Props> = connect(mapState)
 
 // $FlowIgnore
