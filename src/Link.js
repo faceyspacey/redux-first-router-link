@@ -40,6 +40,7 @@ export const Link = (
   {
     to,
     href,
+    location,
     redirect,
     replace,
     tagName = 'a',
@@ -51,12 +52,10 @@ export const Link = (
     target,
     dispatch,
     ...props
-  }: Props,
-  { store }: Context
+  }: Props
 ) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const location = selectLocationState(store.getState())
   const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
@@ -98,11 +97,9 @@ export const Link = (
   )
 }
 
-Link.contextTypes = {
-  store: PropTypes.object.isRequired
-}
-
-const connector: Connector<OwnProps, Props> = connect()
+const mapState = state => ({ location: selectLocationState(state) })
+const mapProps = dispatch => ({ dispatch })
+const connector: Connector<OwnProps, Props> = connect(mapState, mapProps)
 
 // $FlowIgnore
 export default connector(Link)
