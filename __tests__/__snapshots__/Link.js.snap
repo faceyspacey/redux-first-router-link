@@ -104,3 +104,21 @@ exports[`supports custom HTML tag name which is still a link 1`] = `
   onClick={[Function]}
 />
 `;
+
+exports[`with hash history 1`] = `
+<a
+  href="#/first"
+  onClick={[Function]}
+>
+  CLICK ME
+</a>
+`;
+
+exports[`with hash history and with basename 1`] = `
+<a
+  href="#/base-foo/first"
+  onClick={[Function]}
+>
+  CLICK ME
+</a>
+`;

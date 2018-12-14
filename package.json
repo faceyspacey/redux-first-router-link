@@ -68,6 +68,7 @@
     "redux": "^3.x",
     "redux-first-router": "^2.1.1",
     "rimraf": "^2.6.1",
+    "rudy-history": "^1.0.0",
     "semantic-release": "^15.12.4",
     "travis-github-status": "^1.6.3",
     "webpack": "3.5.5"
@@ -93,7 +94,6 @@
   "dependencies": {
     "path-to-regexp": "^1.7.0",
     "prop-types": "15.5.10",
-    "rudy-history": "^1.0.0",
     "rudy-match-path": "^0.3.0"
   }
 }

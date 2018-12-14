@@ -1,10 +1,15 @@
 // @flow
 
-import { pathToAction, redirect, getOptions } from 'redux-first-router'
-import type { RoutesMap } from 'redux-first-router'
-import type { To } from './toUrl'
+import {
+  pathToAction,
+  redirect,
+  getOptions,
+  history
+} from "redux-first-router";
+import type { RoutesMap } from "redux-first-router";
+import type { To } from "./toUrl";
 
-export type OnClick = false | ((SyntheticEvent) => ?boolean)
+export type OnClick = false | (SyntheticEvent => ?boolean);
 export default (
   url: string,
   routesMap: RoutesMap,
@@ -16,17 +21,17 @@ export default (
   dispatchRedirect?: boolean,
   e: SyntheticEvent
 ) => {
-  let shouldGo = true
+  let shouldGo = true;
 
   if (onClick) {
-    shouldGo = onClick(e) // onClick can return false to prevent dispatch
-    shouldGo = typeof shouldGo === 'undefined' ? true : shouldGo
+    shouldGo = onClick(e); // onClick can return false to prevent dispatch
+    shouldGo = typeof shouldGo === "undefined" ? true : shouldGo;
   }
 
-  const prevented = e.defaultPrevented
+  const prevented = e.defaultPrevented;
 
   if (!target && e && e.preventDefault && !isModified(e)) {
-    e.preventDefault()
+    e.preventDefault();
   }
 
   if (
@@ -37,14 +42,24 @@ export default (
     e.button === 0 &&
     !isModified(e)
   ) {
-    const { querySerializer: serializer } = getOptions()
-    let action = isAction(to) ? to : pathToAction(url, routesMap, serializer)
-    action = dispatchRedirect ? redirect(action) : action
-    dispatch(action)
-  }
-}
+    const { querySerializer: serializer } = getOptions();
+    let action = to;
 
-const isAction = (to: ?To) => typeof to === 'object' && !Array.isArray(to)
+    if (!isAction(to)) {
+      url =
+        url.indexOf("#") > -1
+          ? url.substring(url.indexOf("#") + 1, url.length)
+          : url;
+
+      action = pathToAction(url, routesMap, serializer);
+    }
+
+    action = dispatchRedirect ? redirect(action) : action;
+    dispatch(action);
+  }
+};
+
+const isAction = (to: ?To) => typeof to === "object" && !Array.isArray(to);
 
 const isModified = (e: Object) =>
-  !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey)
+  !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
