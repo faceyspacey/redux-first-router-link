@@ -1,10 +1,10 @@
 // @flow
 
-import { pathToAction, redirect, getOptions } from 'redux-first-router'
+import { pathToAction, redirect, getOptions, history } from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 import type { To } from './toUrl'
 
-export type OnClick = false | ((SyntheticEvent) => ?boolean)
+export type OnClick = false | (SyntheticEvent => ?boolean)
 export default (
   url: string,
   routesMap: RoutesMap,
@@ -38,7 +38,17 @@ export default (
     !isModified(e)
   ) {
     const { querySerializer: serializer } = getOptions()
-    let action = isAction(to) ? to : pathToAction(url, routesMap, serializer)
+    let action = to
+
+    if (!isAction(to)) {
+      url =
+        url.indexOf('#') > -1
+          ? url.substring(url.indexOf('#') + 1, url.length)
+          : url
+
+      action = pathToAction(url, routesMap, serializer)
+    }
+
     action = dispatchRedirect ? redirect(action) : action
     dispatch(action)
   }
