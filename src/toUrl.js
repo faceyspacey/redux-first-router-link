@@ -1,50 +1,50 @@
 // @flow
 
-import { actionToPath, getOptions, history } from "redux-first-router";
-import type { RoutesMap } from "redux-first-router";
+import { actionToPath, getOptions, history } from 'redux-first-router'
+import type { RoutesMap } from 'redux-first-router'
 
-export type To = string | Array<string> | Object;
+export type To = string | Array<string> | Object
 
 export default (to?: ?To, routesMap: RoutesMap): string => {
-  const { querySerializer, basename } = getOptions();
+  const { querySerializer, basename } = getOptions()
 
-  if (to && typeof to === "string") {
+  if (to && typeof to === 'string') {
     return history().createHref({
       pathname: to
-    });
+    })
   } else if (Array.isArray(to)) {
-    const path = `/${to.join("/")}`;
+    const path = `/${to.join('/')}`
     return history().createHref({
       pathname: path
-    });
-  } else if (typeof to === "object") {
-    const action = to;
+    })
+  } else if (typeof to === 'object') {
+    const action = to
 
     try {
-      const path = actionToPath(action, routesMap, querySerializer);
+      const path = actionToPath(action, routesMap, querySerializer)
 
       return history().createHref({
         pathname: path
-      });
+      })
     } catch (e) {
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV === 'development') {
         console.warn(
-          "[redux-first-router-link] could not create path from action:",
+          '[redux-first-router-link] could not create path from action:',
           action,
-          "For reference, here are your current routes:",
+          'For reference, here are your current routes:',
           routesMap
-        );
+        )
       }
 
-      return "#";
+      return '#'
     }
   }
 
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     console.warn(
-      "[redux-first-router-link] `to` prop must be a string, array or action object. You provided:",
+      '[redux-first-router-link] `to` prop must be a string, array or action object. You provided:',
       to
-    );
+    )
   }
-  return "#";
-};
+  return '#'
+}

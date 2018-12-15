@@ -24,17 +24,16 @@ const createLink = (props, initialPath, options) => {
   })
 
   const middlewares = applyMiddleware(middleware)
-  const enhancers = compose(enhancer, middlewares)
+  const enhancers = compose(
+    enhancer,
+    middlewares
+  )
   const rootReducer = (state = {}, action = {}) => ({
     location: reducer(state.location, action)
   })
 
   const store = createStore(rootReducer, enhancers)
-  const component = renderer.create(
-    <Provider store={store}>
-      {link}
-    </Provider>
-  )
+  const component = renderer.create(<Provider store={store}>{link}</Provider>)
 
   return {
     component,
