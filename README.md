@@ -139,6 +139,7 @@ const to = `/list/${category}` // can get long & yucky with lots of variables
 * **down: boolean = false** - if `true` supplied, will trigger linking/dispatching `onMouseDown` instead of `onMouseUp`.
 * **shouldDispatch: boolean = true** - if `false` will not dispatch (useful for SEO when action handled in a parent or child element in a fancy way)
 * **target: string** - eg: `'_blank'` to open up URL in a new tab (same as standard `target` attribute to `<a>` tags)
+* **children:** - In addition to normal React component children, you can pass a _function_ as a child (i.e a [render prop](https://reactjs.org/docs/render-props.html#using-props-other-than-render)). The first and only argument to this function is the boolean 'active' status of the NavLink.
 * **...props:** - you can pass any additional props that an `<a>` tag takes, such as `className` and `style`.
 
 ## Familiar React Router Props:
