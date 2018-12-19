@@ -29,7 +29,8 @@ type OwnProps = {
 }
 
 type Props = {
-  dispatch: Function // eslint-disable-line flowtype/no-weak-types
+  dispatch: Function, // eslint-disable-line flowtype/no-weak-types
+  routesMap: object
 } & OwnProps
 
 type Context = {
@@ -51,12 +52,12 @@ export const Link = (
     shouldDispatch = true,
     target,
     dispatch,
+    routesMap,
     ...props
-  }: Props
+  }: Props,
 ) => {
   to = href || to // href is deprecated and will be removed in next major version
 
-  const { routesMap } = location
   const url = toUrl(to, routesMap)
   const handler = handlePress.bind(
     null,
@@ -97,9 +98,14 @@ export const Link = (
   )
 }
 
-const mapState = state => ({ location: selectLocationState(state) })
-const mapProps = dispatch => ({ dispatch })
-const connector: Connector<OwnProps, Props> = connect(mapState, mapProps)
+Link.contextTypes = {
+  store: PropTypes.object.isRequired
+}
+
+const mapState = state => ({
+  routesMap: selectLocationState(state).routesMap
+})
+const connector: Connector<OwnProps, Props> = connect(mapState)
 
 // $FlowIgnore
 export default connector(Link)

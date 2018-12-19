@@ -36,7 +36,8 @@ type OwnProps = {
 }
 
 type Props = {
-  dispatch: Function
+  dispatch: Function,
+  location: any
 } & OwnProps
 
 const NavLink = (
@@ -82,10 +83,14 @@ const NavLink = (
       className={combinedClassName}
       style={combinedStyle}
       aria-current={active && ariaCurrent}
-      location={location}
+      routesMap={location.routesMap}
       {...props}
     />
   )
+}
+
+NavLink.contextTypes = {
+  store: PropTypes.object.isRequired
 }
 
 const mapState = state => ({ location: selectLocationState(state) })
