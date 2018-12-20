@@ -3,7 +3,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
 import { selectLocationState, getOptions } from 'redux-first-router'
@@ -40,22 +39,20 @@ type Props = {
   location: any
 } & OwnProps
 
-const NavLink = (
-  {
-    to,
-    href,
-    location,
-    className,
-    style,
-    activeClassName = 'active',
-    activeStyle,
-    ariaCurrent = 'true',
-    exact,
-    strict,
-    isActive,
-    ...props
-  }: Props
-) => {
+const NavLink = ({
+  to,
+  href,
+  location,
+  className,
+  style,
+  activeClassName = 'active',
+  activeStyle,
+  ariaCurrent = 'true',
+  exact,
+  strict,
+  isActive,
+  ...props
+}: Props) => {
   to = href || to
 
   const options = getOptions()
@@ -87,10 +84,6 @@ const NavLink = (
       {...props}
     />
   )
-}
-
-NavLink.contextTypes = {
-  store: PropTypes.object.isRequired
 }
 
 const mapState = state => ({ location: selectLocationState(state) })
