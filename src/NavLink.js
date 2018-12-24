@@ -52,6 +52,7 @@ const NavLink = (
     exact,
     strict,
     isActive,
+    children,
     ...props
   }: Props
 ) => {
@@ -84,7 +85,9 @@ const NavLink = (
       aria-current={active && ariaCurrent}
       location={location}
       {...props}
-    />
+    >
+      {typeof children === 'function' ? children(active) : children}
+    </Link>
   )
 }
 
