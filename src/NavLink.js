@@ -35,7 +35,6 @@ type OwnProps = {
 }
 
 type Props = {
-  dispatch: Function,
   location: any
 } & OwnProps
 
