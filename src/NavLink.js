@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import type { Store } from 'redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
 import { selectLocationState, getOptions } from 'redux-first-router'
@@ -36,25 +34,23 @@ type OwnProps = {
 }
 
 type Props = {
-  dispatch: Function
+  location: any
 } & OwnProps
 
-const NavLink = (
-  {
-    to,
-    href,
-    location,
-    className,
-    style,
-    activeClassName = 'active',
-    activeStyle,
-    ariaCurrent = 'true',
-    exact,
-    strict,
-    isActive,
-    ...props
-  }: Props
-) => {
+const NavLink = ({
+  to,
+  href,
+  location,
+  className,
+  style,
+  activeClassName = 'active',
+  activeStyle,
+  ariaCurrent = 'true',
+  exact,
+  strict,
+  isActive,
+  ...props
+}: Props) => {
   to = href || to
 
   const options = getOptions()
@@ -82,7 +78,7 @@ const NavLink = (
       className={combinedClassName}
       style={combinedStyle}
       aria-current={active && ariaCurrent}
-      location={location}
+      routesMap={location.routesMap}
       {...props}
     />
   )
