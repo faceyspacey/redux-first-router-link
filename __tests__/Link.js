@@ -90,7 +90,7 @@ it('ON_MOUSE_DOWN: dispatches action onMouseDown if down === true', () => {
 
   tree.props.onMouseDown(event)
 
-  location = store.getState().location /*? */
+  location = store.getState().location // eslint-disable-line prefer-destructuring
 
   expect(location.pathname).toEqual('/first')
   expect(location.type).toEqual('FIRST')

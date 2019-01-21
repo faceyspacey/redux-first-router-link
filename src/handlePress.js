@@ -1,6 +1,8 @@
 // @flow
 
-import { pathToAction, redirect, getOptions, history } from 'redux-first-router'
+import {
+  pathToAction, redirect, getOptions, history
+} from 'redux-first-router'
 import type { RoutesMap } from 'redux-first-router'
 import type { To } from './toUrl'
 
@@ -30,21 +32,20 @@ export default (
   }
 
   if (
-    shouldGo &&
-    shouldDispatch &&
-    !target &&
-    !prevented &&
-    e.button === 0 &&
-    !isModified(e)
+    shouldGo
+    && shouldDispatch
+    && !target
+    && !prevented
+    && e.button === 0
+    && !isModified(e)
   ) {
     const { querySerializer: serializer } = getOptions()
     let action = to
 
     if (!isAction(to)) {
-      url =
-        url.indexOf('#') > -1
-          ? url.substring(url.indexOf('#') + 1, url.length)
-          : url
+      url = url.indexOf('#') > -1
+        ? url.substring(url.indexOf('#') + 1, url.length)
+        : url
 
       action = pathToAction(url, routesMap, serializer)
     }
@@ -56,5 +57,9 @@ export default (
 
 const isAction = (to: ?To) => typeof to === 'object' && !Array.isArray(to)
 
-const isModified = (e: Object) =>
-  !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey)
+const isModified = (e: Object) => !!(
+  e.metaKey
+  || e.altKey
+  || e.ctrlKey
+  || e.shiftKey
+)

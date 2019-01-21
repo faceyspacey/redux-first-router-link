@@ -12,12 +12,12 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
     return history().createHref({
       pathname: to
     })
-  } else if (Array.isArray(to)) {
+  } if (Array.isArray(to)) {
     const path = `/${to.join('/')}`
     return history().createHref({
       pathname: path
     })
-  } else if (typeof to === 'object') {
+  } if (typeof to === 'object') {
     const action = to
 
     try {
@@ -26,7 +26,8 @@ export default (to?: ?To, routesMap: RoutesMap): string => {
       return history().createHref({
         pathname: path
       })
-    } catch (e) {
+    }
+    catch (e) {
       if (process.env.NODE_ENV === 'development') {
         console.warn(
           '[redux-first-router-link] could not create path from action:',
