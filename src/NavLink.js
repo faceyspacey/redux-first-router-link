@@ -37,6 +37,14 @@ type Props = {
   location: any
 } & OwnProps
 
+/**
+ * Remove the first '#' of the string
+ * @param {string} x
+ */
+function trimHash(x) {
+  return x.startsWith('#') ? x.substr(1) : x
+}
+
 const NavLink = ({
   to,
   href,
@@ -56,7 +64,7 @@ const NavLink = ({
   const options = getOptions()
   const basename = options.basename ? options.basename : ''
 
-  const path = toUrl(to, location.routesMap).split('?')[0]
+  const path = trimHash(toUrl(to, location.routesMap).split('?')[0])
 
   const match = matchPath(location.pathname, {
     path: stripBasename(path, basename),
