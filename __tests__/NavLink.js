@@ -1,5 +1,6 @@
 import { NOT_FOUND } from 'redux-first-router'
 import { createNavLink, event } from '../__test-helpers__/createLink'
+import { createRef } from 'react'
 
 test('NON-EXACT: show active class', () => {
   const { tree } = createNavLink('/first', {
@@ -134,3 +135,14 @@ test('query params are ommitted', () => {
 
   expect(tree).toMatchSnapshot()
 })
+
+it('forwards refs', () => {
+  const ref = createRef()
+  createNavLink('/first', {
+    to: '/first',
+    activeClassName: 'active',
+    ref
+  })
+  expect(ref.current).toEqual('node')
+})
+

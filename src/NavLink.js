@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { connect } from 'react-redux'
 import type { Connector } from 'react-redux'
 import matchPath from 'rudy-match-path'
@@ -37,7 +37,7 @@ type Props = {
   location: any
 } & OwnProps
 
-const NavLink = ({
+const NavLink = forwardRef(({
   to,
   href,
   location,
@@ -50,7 +50,7 @@ const NavLink = ({
   strict,
   isActive,
   ...props
-}: Props) => {
+}: Props, ref) => {
   to = href || to
 
   const options = getOptions()
@@ -74,18 +74,18 @@ const NavLink = ({
 
   return (
     <Link
-      to={to}
       className={combinedClassName}
       style={combinedStyle}
       aria-current={active && ariaCurrent}
       routesMap={location.routesMap}
+      {...{ref, to}}
       {...props}
     />
   )
-}
+})
 
 const mapState = state => ({ location: selectLocationState(state) })
-const connector: Connector<OwnProps, Props> = connect(mapState)
+const connector: Connector<OwnProps, Props> = connect(mapState, undefined, undefined, {forwardRef: true})
 
 // $FlowIgnore
 export default connector(NavLink)
