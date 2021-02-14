@@ -1,6 +1,7 @@
 import { NOT_FOUND } from 'redux-first-router'
 import { createHashHistory } from 'rudy-history'
 import createLink, { event } from '../__test-helpers__/createLink'
+import {createRef} from 'react';
 
 test('ON_CLICK: dispatches location-aware action', () => {
   const { tree, store } = createLink({
@@ -257,4 +258,14 @@ test('with hash history and with basename', () => {
   expect(tree.props.href).toEqual('#/base-foo/first')
   expect(location.pathname).toEqual('/first')
   expect(location.type).toEqual('FIRST')
+})
+
+it('forwards refs', () => {
+  const ref = createRef();
+  createLink({
+    to: '/first',
+    children: 'CLICK ME',
+    ref
+  })
+  expect(ref.current).toEqual('node');
 })

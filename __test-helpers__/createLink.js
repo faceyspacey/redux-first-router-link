@@ -33,7 +33,10 @@ const createLink = (props, initialPath, options) => {
   })
 
   const store = createStore(rootReducer, enhancers)
-  const component = renderer.create(<Provider store={store}>{link}</Provider>)
+  const component = renderer.create(
+    <Provider store={store}>{link}</Provider>,
+    { createNodeMock: () => 'node' },
+  )
 
   return {
     component,

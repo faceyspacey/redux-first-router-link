@@ -31,7 +31,7 @@ type Props = {
   routesMap: object
 } & OwnProps
 
-export const Link = ({
+export const Link = React.forwardRef(({
   to,
   href,
   redirect,
@@ -46,7 +46,7 @@ export const Link = ({
   dispatch,
   routesMap,
   ...props
-}: Props) => {
+}: Props, ref) => {
   to = href || to // href is deprecated and will be removed in next major version
 
   const url = toUrl(to, routesMap)
@@ -83,16 +83,17 @@ export const Link = ({
       onClick={(!down && handler) || preventDefault}
       {...localProps}
       {...props}
+      {...{ref}}
     >
       {children}
     </Root>
   )
-}
+})
 
 const mapState = state => ({
   routesMap: selectLocationState(state).routesMap
 })
-const connector: Connector<OwnProps, Props> = connect(mapState)
+const connector: Connector<OwnProps, Props> = connect(mapState, undefined, undefined, {forwardRef: true})
 
 // $FlowIgnore
 export default connector(Link)
