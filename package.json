@@ -69,7 +69,7 @@
     "redux": "^4.x",
     "redux-first-router": "^2.1.1",
     "rimraf": "^2.6.1",
-    "semantic-release": "^15.12.4",
+    "semantic-release": "^17.2.3",
     "travis-github-status": "^1.6.3",
     "webpack": "3.5.5"
   },
