@@ -142,7 +142,7 @@ const to = `/list/${category}` // can get long & yucky with lots of variables
 * **...props:** - you can pass any additional props that an `<a>` tag takes, such as `className` and `style`.
 
 ## Familiar React Router Props:
-* **redirect: boolean = false** - if `true` supplied, will dispatching your action as a redirect, resulting in the current page in the browser history being replaced rather than pushed. That means if the user presses the browser BACK button, he/she won't be able to go back to the previous page that had the link--he/she will go to the page before that. *alias: replace*
+* **redirect: boolean = false** - if `true` supplied, will dispatching your action as a redirect, resulting in the current page in the browser history being replaced rather than pushed. That means if the user presses the browser BACK button, they won't be able to go back to the previous page that had the link--they will go to the page before that. *alias: replace*
 * **onClick: (SyntheticEvent) => ?boolean** - you can provide an `onClick` handler to do anything you want (e.g. play a sound), but if you return `false` or call `event.preventDefault()` it will prevent
   linking/dispatching just as you may be used to. TIP: use either instead of `shouldDispatch` when you want to dynamically determine
   whether to trigger the action or not!
